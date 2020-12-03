@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('.slider').slider();
     $('.datepicker').datepicker({
         format: "dd mmm, yyyy",
-        yearRange: [1960,2021],
+        yearRange: [1900,2021],
         changeMonth: true,
         changeYear: true,
         showClearBtn: true,
