@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">All Tasks</h3>
+
+    <ul class="collapsible">
+        {% for review in reviews %}
+        <li>
+            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ review.title }}</strong> : {{ review.submitted_by }}
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ review.category_name }}</strong>
+                <p>{{ review.release_date }}</p>
+                <p>{{ review.created_by }}</p>
+                <p>{{ review.genre }}</p>
+                <p>{{ review.length }}</p>
+                <p>{{ review.review }}</p>
+                <p>{{ review.rating }}</p>
+                <p><em>by: {{ review.submitted_by }}</em></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
