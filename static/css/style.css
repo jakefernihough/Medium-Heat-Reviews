@@ -18,3 +18,14 @@
     margin 5px;
     line-height: 42px;
 }
+
+.card {
+    height: 650px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.card-image {
+    width: 100%;
+    max-height: 550px;
+}

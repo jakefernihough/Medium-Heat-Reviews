@@ -109,6 +109,7 @@ def new_reviews():
 def add_reviews():
     if request.method == "POST":
         review = {
+            "img_url": request.form.get("img_url"),
             "category_name": request.form.get("category_name"),
             "title": request.form.get("title"),
             "release_date": request.form.get("release_date"),
@@ -131,6 +132,7 @@ def add_reviews():
 def edit_review(review_id):
     if request.method == "POST":
         submit = {
+            "img_url": request.form.get("img_url"),
             "category_name": request.form.get("category_name"),
             "title": request.form.get("title"),
             "release_date": request.form.get("release_date"),
@@ -155,6 +157,13 @@ def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Task Successfully Deleted")
     return redirect(url_for("new_reviews"))
+
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
