@@ -37,6 +37,7 @@ def register():
             return redirect(url_for("register"))
 
         register = {
+            "email": request.form.get("email").lower,
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -44,7 +45,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!, Please edit your profile!")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")

@@ -1,48 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Edit Profile</h3>
+    <h3 class="light-blue-text text-darken-4 center-align grey-text">Edit Profile</h3>
 
-    <div class="row card-panel grey lighten-5">
+    <div class="container">
+    <div class="row card-tiles">
         <form class="col s12" method="POST">
             <!-- Title -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-user-edit prefix yellow-text"></i>
                     <input id="username" name="username" minlength="5" maxlength="15"
                         value="{{ user.username }}" type="text" class="validate" required>
-                    <label for="username">Change Username</label>
+                    <label class="black-text" for="username">Change Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="email" name="email" minlength="5" maxlength="15"
+                    <i class="fas fa-envelope prefix yellow-text"></i>
+                    <input id="email" name="email" minlength="5" maxlength="25"
                         value="{{ user.email }}" type="text" class="validate" required>
-                    <label for="email">Change Email Address</label>
+                    <label class="black-text" for="email">Change Email Address</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-lock prefix yellow-text"></i>
                     <input id="password" name="password" minlength="4" maxlength="12"
                         pattern="^[a-zA-Z0-9{4,10}$" type="text" class="validate" required>
-                    <label for="password">Change Password</label>
+                    <label class="black-text" for="password">Change Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-hashtag prefix yellow-text"></i>
                     <textarea id="tagline" name="tagline" minlength="5"
                         maxlength="50" class="materialize-textarea validate" required>
                         {{- user.tagline -}}
                     </textarea>
-                    <label for="tagline">Tagline</label>
+                    <label class="black-text" for="tagline">Tagline</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="user_image">Update Profile Image</label>
+                    <i class="fas fa-images prefix yellow-text"></i>
+                    <label class="black-text" for="user_image">Update Profile Image</label>
                     <input class="form-control" id="user_image" name="user_image" required type="url">
                 </div>
             </div>
@@ -52,5 +54,6 @@
             <a href="{{ url_for('profile')}}" class="btn" aria-label="cancel" title="cancel"><i class="fas fa-times-circle icon-btn"></i></a>
             </form>
             </div>
+        </div>
 
 {% endblock %}
