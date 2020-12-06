@@ -79,16 +79,35 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+@app.route("/profile")
+def profile():
     if session["user"]:
-        return render_template("profile.html", username=username)
+        user_profile = mongo.db.users.find_one(
+            {"username": session["user"]})
+        return render_template("profile.html", user=user_profile)
 
     return redirect(url_for("login"))
+
+
+@app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
+def edit_profile(user_profile_id):
+    if request.method == "POST":
+        submit = {"$set": {
+            "username": request.form.get("username"),
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password"))
+            }
+        }
+        mongo.db.users.update_one({"_id": ObjectId(user_profile_id)}, submit)
+        session["user"] = request.form.get("username")
+        flash("profile successfully updated!")
+
+        return redirect(url_for("profile"))
+
+    user_profile = mongo.db.users.find_one({"_id": ObjectId(user_profile_id)})
+    return render_template(
+        "edit_profile.html", main_content="edit_profile",
+        user=user_profile)
 
 
 @app.route("/logout")

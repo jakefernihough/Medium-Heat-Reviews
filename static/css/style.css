@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+
+.main-container {
+    min-height: 100vh; 
+    overflow: hidden;
+    display: block;
+}
+
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -6,22 +14,53 @@
     line-height: 2;
 }
 
-.cat-icon {
-    font-size: 55px;
+    /* Navbar */
+
+.nav-edit {
+    background-image: linear-gradient(to bottom right, purple, yellow);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.btn-small {
-    margin: 5px;
+.nav-wrapper a{
+    text-decoration: none;
 }
 
-.collapsible-header .col strong {
-    margin 5px;
-    line-height: 42px;
+.nav-wrapper ul li a:hover {
+    color: red;
 }
+
+    /* PROFILE */
+
+.card-title {
+    text-transform: capitalize;
+}
+
+.card .horizontal {
+    border-color: black;
+}
+
+    /* PROFILE PICTURE */
+
+.caption div {
+    box-shadow: 0 0 5px #black;
+    transition: all 0.3s ease 0s;
+    
+}
+.img-circle {
+    width: 40%;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+    /* NEW REVIEWS */
+
+    /* CARDS */
 
 .card {
     height: 650px;
-    width: 50%;
+    width: 100%;
     margin-bottom: 20px;
 }
 
