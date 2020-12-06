@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
 
 .main-container {
-    min-height: 100vh; 
-    overflow: hidden;
-    display: block;
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains Mono', monospace;
+    color: #585858;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
 }
 
 .text-shadow {
@@ -59,15 +64,25 @@
 
     /* NEW REVIEWS */
 
-    /* CARDS */
-
-.card {
-    height: 650px;
-    width: 100%;
-    margin-bottom: 20px;
+.new-reviews-header {
+    padding-top: 20px;
 }
 
-.card-image {
-    width: 100%;
-    max-height: 500px;
+    /* CARDS */
+
+.card-tiles {
+    box-shadow: 10px 5px 20px black;
+    background-image: linear-gradient(to bottom right, purple, yellow);
+    color: white;
+    padding: 10px 0 10px;
+}
+
+.card {
+    height: 500px;
+    
+    box-shadow: 10px 5px 20px black;
+}
+
+.card-image img{
+    height: 300px;
 }

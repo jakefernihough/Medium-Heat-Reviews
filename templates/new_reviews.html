@@ -1,38 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">New Reviews</h3>
 
-    
-    {% for review in reviews %}
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-12">
-            <div class="card">
-                
-            {% if session.user|lower == review.submitted_by|lower %}
-                <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small red lighten-1"><i class="fas fa-trash"></i> Delete</a>
-                <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small light-blue lighten-1">Edit</a>
-                {% endif %}
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="m-6" src="{{ review.img_url }}" alt="cover-photo"><br>
+    <h3 class="new-reviews-header center-align">NEW REVIEWS</h3>
+
+    <div class="container">
+        <div class="row card-tiles">
+        {% for review in reviews %}
+            <div class="col s12 m4 l4">
+                <div class="category-header center-align">
+                    {{ review.category_name }}   
                 </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><strong>{{ review.title }}</strong> : {{ review.rating }}<i class="material-icons right"></i></span>
+                <div class="card center">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ review.img_url }}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ review.title }}<i class="material-icons right"></i></span>
+                        <p>{{ review.rating }}</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title"><i class="fas fa-times"></i></span>
+                        <p>{{ review.title }}</p>
+                        <p><strong>Release Date: </strong>{{ review.release_date }}</p>
+                        <p><strong>Created by: </strong>{{ review.created_by }}</p>
+                        <p><strong>Genre: </strong>{{ review.genre }}</p>
+                        <p><strong>Length: </strong>{{ review.length }}</p>
+                        <p><strong>Review: </strong>{{ review.review }}</p>
+                        <p><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
+                    </div>
                 </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ review.title }}<i class="material-icons right">close</i></span>
-                    <strong>{{ review.category_name }}</strong>
-                    <p>Release Date: {{ review.release_date }}</p>
-                    <p>Created by: {{ review.created_by }}</p>
-                    <p>Genre: {{ review.genre }}</p>
-                    <p>Length: {{ review.length }}</p>
-                    <p>Review: {{ review.review }}</p>
-                    <p>Reting: {{ review.rating }}</p>
-                    <p><em>by: {{ review.submitted_by }}</em></p>
-                </div>  
             </div>
+        {% endfor %}
         </div>
     </div>
-    {% endfor %}
 
 {% endblock %}

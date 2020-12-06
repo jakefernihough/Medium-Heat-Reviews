@@ -20,20 +20,12 @@
                 </div>  
             </div>
 	        <div class="row">
-                <div class="col-sm-12 col-md-12 center-align">
+                <div class="col-12 center-align">
                     <h3>{{ user.username }}'s Profile</h3>
+                    <p>{{ user.email }}</p>
+                    <p>{{ user.tagline }}</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-12 center-align">
-                    <h6>{{ user.email }}</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-12 center-align">
-                    <h6>{{ user.tagline }}</h6>
-                </div>
-            </div>    
+            </div>   
         </div>
     {% endif %}
 
