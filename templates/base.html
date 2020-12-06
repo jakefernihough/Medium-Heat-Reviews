@@ -12,11 +12,10 @@
     {% endblock %}
     <title>Medium Heat Reviews</title>
 </head>
-<body>
-    
+  <body>
     <header>
     <!--Top Navbar-->
-        <nav class="nav-extended nav-edit text-shadow text-lighten-2">
+        <nav class="nav-extended nav-edit fixed text-shadow text-lighten-2">
             <div class="nav-wrapper">
                 <a href="{{ url_for('about') }}" class="brand-logo"><img src="/static/images/medium-heat-review.png" alt="Medium Heat Reviews"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -38,7 +37,7 @@
             </div>
         </nav>
     <!--Mobile Navbar-->
-        <ul class="sidenav nav-edit" id="mobile-demo">
+        <ul class="sidenav nav-edit fixed" id="mobile-demo">
             <li><h4 class="center-align no-line text-lighten-2 text-shadow">Medium Heat Reviews</h4></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             {% if session.user %}
