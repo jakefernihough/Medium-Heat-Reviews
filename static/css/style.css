@@ -12,7 +12,7 @@
 }
 
 .text-shadow {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.5);
 }
 
 .flashes h4 {
@@ -35,7 +35,7 @@
     color: red;
 }
 
-   /* Login */
+   /* Login/ Register */
 
 .login-edit {
     background-image: linear-gradient(to bottom right, purple, yellow);
@@ -43,6 +43,23 @@
     font-family: 'JetBrains Mono', monospace;
     text-transform: capitalize;
     margin-bottom: 20px;
+}
+
+    /* About */
+
+.caption {
+    box-shadow: 10px 15px 20px black;
+    margin-top: 40px;
+}
+
+.cat-icon {
+    font-size: 45px;
+    text-shadow: 2px 4px 3px black;
+}
+
+.slider {
+    box-shadow: 10px 5px 20px black;
+    margin-top: 40px;
 }
 
     /* PROFILE */
