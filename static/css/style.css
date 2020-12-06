@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: 'JetBrains Mono', monospace;
-    color: #585858;
+    background-image: url("https://st.depositphotos.com/1585301/1627/i/950/depositphotos_16272585-stock-photo-pen-on-old-postal-envelope.jpg");
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -35,6 +35,16 @@
     color: red;
 }
 
+   /* Login */
+
+.login-edit {
+    background-image: linear-gradient(to bottom right, purple, yellow);
+    box-shadow: 10px 5px 20px black;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
     /* PROFILE */
 
 .well {
@@ -63,7 +73,6 @@
 .btn {
     background-color: yellow;
     color: purple;
-    border-radius: 90%
 }
 
 .btn i {
