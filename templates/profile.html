@@ -12,7 +12,12 @@
             <div class="row">
                 <div class="col-12 image-edit center-align">
                     <img src="{{ user.user_image }}" class="img-circle center-align">
+                    <!-- How do I have a temporary profile picture for newly registered accounts?  -->
                 </div>  
+                <div class="col-12 center-align">
+                <a class="btn" href="{{ url_for('edit_profile', user_profile_id=user._id) }}" title="edit profile"> <i
+                    class="fas fa-user-edit" aria-hidden="true"> Edit Profile</i></a>
+            </div>
             </div>
 	        <div class="row">
                 <div class="col-12 center-align">
@@ -20,17 +25,25 @@
                     <p>{{ user.email }}</p>
                     <p>{{ user.tagline }}</p>
                 </div>
-                <div class="row">
-            <div class="col m2">
-                <a class="btn" href="{{ url_for('edit_profile', user_profile_id=user._id) }}" title="edit profile"> <i
-                    class="fas fa-user-edit icon-btn" aria-hidden="true"> Edit Profile</i></a>
-            </div>
             </div>   
         </div>
     {% endif %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12 center-align">
+                <h3>My Reviews</h3>
+            </div>
+            <div class="col-12 center-align">
+                <a class="btn " href="{{ url_for('add_reviews') }}" title="Add Review"> <i
+                    class="fas fa-plus" aria-hidden="true"> Add Review</i></a>
+            </div>
+        </div>
+    </div>
+
     <!--
         I WANT TO ADD THE REVIEWS SUBMITTED BY A USER TO SHOW ON THEIR PROFILE.
+        This way they can edit there reviews or delete if necessary.
     -->
 
 

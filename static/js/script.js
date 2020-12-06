@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('.collapsible').collapsible();
     $('.slider').slider();
+    $(".dropdown-trigger").dropdown();
     $('.datepicker').datepicker({
         format: "dd mmm, yyyy",
         yearRange: [1900,2021],

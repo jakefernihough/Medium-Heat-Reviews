@@ -15,7 +15,7 @@
   <body>
     <header>
     <!--Top Navbar-->
-        <nav class="nav-extended nav-edit fixed text-shadow text-lighten-2">
+        <nav class="nav-extended nav-edit fixed text-lighten-2">
             <div class="nav-wrapper">
                 <a href="{{ url_for('about') }}" class="brand-logo"><img src="/static/images/logo.jpg" alt="Medium Heat Reviews"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -23,10 +23,18 @@
                     <li><a href="{{ url_for('about') }}">About</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('new_reviews') }}">New Reviews</a></li>
-                        {% if session.user|lower == "admin|lower" %}
-                            <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
-                        {% endif %}
+                            <ul class="right hide-on-med-and-down">
+                            <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-trigger" href="{{ url_for('get_categories') }}" data-target="dropdown1">Categories</a></li>
+                            </ul>
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
+                                <li><a href="#!">Films</a></li>
+                                <li><a href="#!">Television</a></li>
+                                <li><a href="#!">Books</a></li>
+                                <li><a href="#!">Video Games</a></li>
+                            </ul>
+                        <li><a href="{{ url_for('new_reviews') }}">New Reviews</a></li>    
                         <li><a href="{{ url_for('add_reviews') }}">Add Review</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -42,10 +50,19 @@
             <li><a href="{{ url_for('about') }}">About</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <ul class="right hide-on-med-and-down">
+                    <!-- Dropdown Trigger -->
+                        <li><a class="dropdown-trigger" href="{{ url_for('get_categories') }}" data-target="dropdown2">Categories</a></li>
+                    </ul>
+                    <ul id="dropdown2" class="dropdown-content">
+                        <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
+                        <li><a href="#!">Films</a></li>
+                        <li><a href="#!">Television</a></li>
+                        <li><a href="#!">Books</a></li>
+                        <li><a href="#!">Video Games</a></li>
+                    </ul>
                 <li><a href="{{ url_for('new_reviews') }}">New Reviews</a></li>
-                {% if session.user|lower == "admin"|lower %}
-                    <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
-                {% endif %}
+                    
                 <li><a href="{{ url_for('add_reviews') }}">Add Review</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
