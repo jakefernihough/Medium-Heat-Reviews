@@ -3,112 +3,104 @@
 
     <h3 class="light-blue-text text-darken-4 center-align">Edit Review</h3>
 
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
-            <!-- Category selection -->
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled>Choose Category</option>
-                        {% for category in categories %}
-                            {% if category.category_name == review.category_name %}
-                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                            {% else %}
+    <div class="container">
+        <div class="row card-tiles">
+            <form class="col s12" method="POST" action="{{ url_for('add_reviews') }}">
+                <!-- category selection -->
+			    <div class="row">
+				    <div class="input-field col s12">
+                        <i class="fas fa-folder-open prefix yellow-text"></i>
+					    <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for category in categories %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-					<label for="category_name">Media Category</label>
-				</div>
-			</div>
-            <!-- Image Url -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <label for="img_url">Insert Image URL</label>
-                    <input class="form-control" id="img_url" name="img_url" required type="url">
+                            {% endfor %}
+                        </select>
+					    <label for="category_name">Media Type</label>
+				    </div>
+    			</div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-images prefix yellow-text"></i>
+                        <label for="img_url">Insert Image URL</label>
+                        <input class="form-control" id="img_url" name="img_url" required type="url">
+                    </div>
                 </div>
-            </div>
-            <!-- Title -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="title" name="title" minlength="1" maxlength="50"
-                        value="{{ review.title }}" type="text" class="validate" required>
-                    <label for="title">Title</label>
+                <!-- title -->
+                <div class="row">
+                   <div class="input-field col s12">
+                        <i class="fas fa-pencil-alt prefix yellow-text"></i>
+                        <input id="title" name="title" minlength="5" maxlength="50"
+                            type="text" class="validate" required>
+                        <label for="title">Title</label>
+                    </div>
                 </div>
-            </div>
-            <!-- release date -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="release_date" name="release_date" type="text"
-                        value="{{ review.release_date }}" class="datepicker validate" required>
-                    <label for="release_date">Release Date</label>
+                <!-- release date -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-calendar-alt prefix yellow-text"></i>
+                        <input id="release_date" name="release_date" type="text" class="datepicker validate" required>
+                        <label for="release_date">Release Date</label>
+                    </div>
                 </div>
-            </div>
-            <!-- Created By -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="created_by" name="created_by" minlength="5" maxlength="50"
-                        value="{{ review.created_by }}" type="text" class="validate" required>
-                    <label for="created_by">Created By</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-quote-left  prefix yellow-text"></i>
+                        <input id="created_by" name="created_by" minlength="5" maxlength="50"
+                            type="text" class="validate" required>
+                        <label for="created_by">Created By</label>
+                    </div>
                 </div>
-            </div>
-            <!-- Genre -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="genre" name="genre" minlength="5" maxlength="50"
-                        value="{{ review.genre }}" type="text" class="validate" required>
-                    <label for="genre">Genre</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-folder-plus prefix yellow-text"></i>
+                        <input id="genre" name="genre" minlength="5" maxlength="50"
+                            type="text" class="validate" required>
+                        <label for="genre">Genre</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="length" name="length" minlength="5" maxlength="50"
-                        value="{{ review.length }}" type="text" class="validate" required>
-                    <label for="length">Length</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-clock prefix yellow-text"></i>
+                        <input id="length" name="length" minlength="5" maxlength="50"
+                            type="text" class="validate" required>
+                        <label for="length">Length</label>
+                    </div>
                 </div>
-            </div>
-            <!-- Review -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="review" name="review" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>
-                        {{- review.review -}}
-                    </textarea>
-                    <label for="review">Task Description</label>
+                <!-- task description -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-align-left prefix yellow-text"></i>
+                        <textarea id="review" name="review" minlength="5"
+                            maxlength="200" class="materialize-textarea validate" required></textarea>
+                        <label for="review">Your Review</label>
+                    </div>
                 </div>
-            </div>
-            <!-- Rating -->
-			<div class="row">
-                <label for="rating">Rating</label>
-                <select name="rating" class="form-control" id="rating" required>
-                    <option value="" selected>Select</option>
-                    <option value="&#11088;">&#11088;</option>
-                    <option value="&#11088; &#11088;">&#11088; &#11088;</option>
-                    <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
-                    <option value="&#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088;</option>
-                    <option value="&#11088; &#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
-                </select>
-            </div>
-            <!-- Edit button -->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <!-- cancel button -->
-                    <a href="{{ url_for('new_reviews') }}" class="btn-large red text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Edit Review <i class="fas fa-edit right"></i>
-                    </button>
+                <div class="row">
+                    <i class="fas fa-star prefix yellow-text"></i>
+                    <label for="rating">Rating</label>
+                        <select name="rating" class="form-control" id="rating" required>
+                            <option value="" selected></option>
+                            <option value="&#11088;">&#11088;</option>
+                            <option value="&#11088; &#11088;">&#11088; &#11088;</option>
+                            <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
+                            <option value="&#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088;</option>
+                           <option value="&#11088; &#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                        </select>
                 </div>
-            </div>
-        </form>
-    </div>
+                <!-- Edit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <!-- cancel button -->
+                        <a href="{{ url_for('new_reviews') }}" class="btn">
+                            Cancel <i class="fas fa-times-circle right"></i>
+                        </a>
+                        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                            Edit Review <i class="fas fa-edit right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
 {% endblock %}
