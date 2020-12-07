@@ -10,10 +10,10 @@
 
     <h3 class="new-reviews-header center-align">NEW REVIEWS</h3>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row card-tiles">
         {% for review in reviews %}
-            <div class="col s12 m4 l4">
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
                 <div class="category-header center-align">
                     {{ review.category_name }}   
                 </div>
@@ -22,18 +22,19 @@
                         <img class="activator" src="{{ review.img_url }}">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{ review.title }}<i class="material-icons right"></i></span>
+                        <span class="card-title activator">{{ review.title }}
                         <p>{{ review.rating }}</p>
+                        <i class="fas fa-ellipsis-h right"></i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title"><i class="fas fa-times"></i></span>
-                        <p>{{ review.title }}</p>
-                        <p><strong>Release Date: </strong>{{ review.release_date }}</p>
-                        <p><strong>Created by: </strong>{{ review.created_by }}</p>
-                        <p><strong>Genre: </strong>{{ review.genre }}</p>
-                        <p><strong>Length: </strong>{{ review.length }}</p>
-                        <p><strong>Review: </strong>{{ review.review }}</p>
-                        <p><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
+                    <span class="card-title"><i class="fas fa-times"></i></span>
+                        <p class="card-comp"><strong>{{ review.title }}</strong></p>
+                        <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
+                        <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
+                        <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
+                        <p class="card-comp"><strong>Length: </strong>{{ review.length }}</p>
+                        <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>
+                        <p class="card-comp"><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
                     </div>
                 </div>
             </div>

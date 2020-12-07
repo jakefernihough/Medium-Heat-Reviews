@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Edit Review</h3>
+
+    <h3 class="center-align">Edit Review</h3>
 
     <div class="container">
         <div class="row card-tiles">
-            <form class="col s12" method="POST" action="{{ url_for('add_reviews') }}">
+            <form class="col s12" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
                 <!-- category selection -->
 			    <div class="row">
 				    <div class="input-field col s12">
