@@ -17,11 +17,13 @@ body::-webkit-scrollbar-thumb {
 
     /* Body */
 
+
+
 .main-container {
-    margin: 0;
-    padding: 0;
     font-family: 'JetBrains Mono', monospace;
-    background-image: url("https://st.depositphotos.com/1585301/1627/i/950/depositphotos_16272585-stock-photo-pen-on-old-postal-envelope.jpg");
+    background-image: url("https://images.hdqwalls.com/wallpapers/feather-pen.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -226,6 +228,7 @@ body::-webkit-scrollbar-thumb {
 
 
     /* Specific reviews */
+    
 
 .square-flip {
     -webkit-perspective: 1000;
@@ -251,7 +254,7 @@ body::-webkit-scrollbar-thumb {
 
 .square-flip {
 	width:400px;
-	height:400px;
+	height:480px;
 }
 
 .square,.square2{

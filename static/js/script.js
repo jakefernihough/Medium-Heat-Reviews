@@ -3,7 +3,19 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
     $('.slider').slider();
     $(".dropdown-trigger").dropdown();
-      //Count nr. of square classes
+    $('.datepicker').datepicker({
+        format: "dd mmm, yyyy",
+        yearRange: [1900,2021],
+        changeMonth: true,
+        changeYear: true,
+        showClearBtn: true,
+        i18n: {
+            done: "Select"
+        }
+    });
+    $('select').formSelect();
+  });
+    //Count nr. of square classes
   var countSquare = $('.square').length;
 
   //For each Square found add BG image
@@ -17,19 +29,5 @@ $(document).ready(function(){
     firstImage.css('background-image', 'url(' + getImage + ')');
     secondImage.css('background-image', 'url(' + getImage2 + ')');
   }
-
-});
-    $('.datepicker').datepicker({
-        format: "dd mmm, yyyy",
-        yearRange: [1900,2021],
-        changeMonth: true,
-        changeYear: true,
-        showClearBtn: true,
-        i18n: {
-            done: "Select"
-        }
-    });
-    $('select').formSelect();
-  });
 
 

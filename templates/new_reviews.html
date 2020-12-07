@@ -8,9 +8,10 @@
 	<div class="square-flip">
 		<div class="square">
 			<div class="square-container">
+                <h2 class="textshadow">{{ review.category_name }}</h2>
 				<div class="align-center"><img src="{{ review.img_url }}" class="boxshadow" alt=""></div>
 				<h2 class="textshadow">{{ review.title }}</h2>
-				<h3 class="textshadow">{{ review.rating }}</h3>
+				<p class="textshadow">{{ review.rating }}</p>
 			</div>
 			<div class="flip-overlay"></div>
 		</div>
