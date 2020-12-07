@@ -196,6 +196,25 @@ def films():
     return render_template("films.html", reviews=reviews)
 
 
+@app.route("/television")
+def television():
+    reviews = mongo.db.reviews.find()
+    return render_template("television.html", reviews=reviews)
+
+
+@app.route("/books")
+def books():
+    reviews = mongo.db.reviews.find()
+    return render_template("books.html", reviews=reviews)
+
+
+@app.route("/videogames")
+def videogames():
+    reviews = mongo.db.reviews.find()
+    return render_template("videogames.html", reviews=reviews)
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
     port=int(os.environ.get("PORT")),

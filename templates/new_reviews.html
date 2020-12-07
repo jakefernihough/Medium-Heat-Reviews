@@ -2,34 +2,40 @@
 {% block content %}
 
     <h3 class="center-align">New Reviews</h3>
-    <div class="container">
-{% for review in reviews %}
-<div class="centerflipcards">
-	<div class="square-flip">
-		<div class="square">
-			<div class="square-container">
-                <h2 class="textshadow">{{ review.category_name }}</h2>
-				<div class="align-center"><img src="{{ review.img_url }}" class="boxshadow" alt=""></div>
-				<h2 class="textshadow">{{ review.title }}</h2>
-				<p class="textshadow">{{ review.rating }}</p>
-			</div>
-			<div class="flip-overlay"></div>
-		</div>
-		<div class="square2">
-			<div class="square-container2">
-				<div class="align-center"></div>
-				<p class="card-comp"><strong>{{ review.title }}</strong></p>
+
+    <div class="container-fluid">
+        <div class="row card-tiles">
+        {% for review in reviews %}
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="category-header center-align">
+                    {{ review.category_name }}   
+                </div>
+                <div class="card center">
+                    <div class="row">
+                        <div class="col s12 center-align">
+                    </div>
+                </div>
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ review.img_url }}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title  grey-text text-darken-4">{{ review.title }}</span>
+                    <p>{{ review.rating }}</p>
+                    <i class="activator fas fa-ellipsis-h"></i>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title"><i class="fas fa-times"></i></span>
+                        <p class="card-comp"><strong>{{ review.title }}</strong></p>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
                         <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
                         <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
                         <p class="card-comp"><strong>Length: </strong>{{ review.length }}</p>
                         <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>
                         <p class="card-comp"><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
-			</div>
-			<div class="flip-overlay"></div>
-		</div>
-	</div>
-    
-    {% endfor %}
-</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}
