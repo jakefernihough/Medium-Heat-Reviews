@@ -40,11 +40,11 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row card-tiles">
         {% for review in review %}
             {% if review.submitted_by == session["user"] %}
-            <div class="col s12 m4 l4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="category-header center-align">
                     {{ review.category_name }}   
                 </div>

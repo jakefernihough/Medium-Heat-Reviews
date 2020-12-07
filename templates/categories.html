@@ -4,18 +4,50 @@
 
     <h3 class="center-align">choose your category</h3>
 
-
     <div class="container">
         <div class="row">
-        {% for category in categories %}
             <div class="col-lg-6 md-6 sm-12">   
                 <div class="cards 1">
-                    <div class="card_image"> <img src="{{ category.cat_image }}"/> </div>
+                    <div class="card_image"> <img src="https://wallpaperaccess.com/full/2000046.jpg"/> </div>
                         <div class="card_title white-text text-shadow">
-                            <p>{{ category.category_name }}</p>
+                            <a href="{{ url_for('films') }}">
+                                <p>Films</p>
+                            </a>
                         </div>
                     </div>
-                </div>           
-    {% endfor %}
+                </div>
+            <div class="col-lg-6 md-6 sm-12">
+                <div class="cards 1">
+                    <div class="card_image"> <img src="https://wallpaperaccess.com/full/2081074.jpg"/> </div>
+                        <div class="card_title white-text text-shadow">
+                            <a href="{{ url_for('television') }}">
+                                <p>Television</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>  
+            <div class="col-lg-6 md-6 sm-12">
+                <div class="cards 1">
+                    <div class="card_image"> <img src="https://wallpaperaccess.com/full/124493.jpg"/> </div>
+                        <div class="card_title white-text text-shadow">
+                            <a href="{{ url_for('books') }}">
+                                <p>Books</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>    
+            <div class="col-lg-6 md-6 sm-12">
+                <div class="cards 1">
+                    <div class="card_image"> <img src="https://ayay.co.uk/backgrounds/action_games/classic/space-invaders-minimal-cabinet.jpg"/></div>
+                        <div class="card_title white-text text-shadow">
+                            <a href="{{ url_for('films') }}">
+                                <p>Video Games</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
 
 {% endblock %}
