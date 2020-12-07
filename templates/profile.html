@@ -9,24 +9,24 @@
     {% else %}
     <br><br>
     <div class="container well">
-            <div class="row">
-                <div class="col-12 image-edit center-align">
-                    <img src="{{ user.user_image }}" class="img-circle center-align">
-                    <!-- How do I have a temporary profile picture for newly registered accounts?  -->
-                </div>  
-                <div class="col-12 center-align">
+        <div class="row">
+            <div class="col-12 image-edit center-align">
+                <img src="{{ user.user_image }}" class="img-circle center-align">
+                <!-- How do I have a temporary profile picture for newly registered accounts?  -->
+            </div>  
+        </div>
+	    <div class="row">
+            <div class="col-12 center-align">
+                <h3>{{ user.username }}'s Profile</h3>
+                <p>{{ user.email }}</p>
+                <p>{{ user.tagline }}</p>
+            </div>
+            <div class="col-12 center-align">
                 <a class="btn" href="{{ url_for('edit_profile', user_profile_id=user._id) }}" title="edit profile"> <i
                     class="fas fa-user-edit" aria-hidden="true"> Edit Profile</i></a>
             </div>
-            </div>
-	        <div class="row">
-                <div class="col-12 center-align">
-                    <h3>{{ user.username }}'s Profile</h3>
-                    <p>{{ user.email }}</p>
-                    <p>{{ user.tagline }}</p>
-                </div>
-            </div>   
-        </div>
+        </div>   
+    </div>
     {% endif %}
 
     <div class="container">
@@ -40,11 +40,52 @@
             </div>
         </div>
     </div>
-
-    <!--
-        I WANT TO ADD THE REVIEWS SUBMITTED BY A USER TO SHOW ON THEIR PROFILE.
-        This way they can edit there reviews or delete if necessary.
-    -->
-
+    <div class="container">
+        <div class="row card-tiles">
+        {% for review in review %}
+            {% if review.submitted_by == session["user"] %}
+            <div class="col s12 m4 l4">
+                <div class="category-header center-align">
+                    {{ review.category_name }}   
+                </div>
+                <div class="card center">
+                    <div class="row">
+                        <div class="col s12 center-align">
+                        <!-- Edit button -->
+                        <button type="submit" class="btn">
+                            <a href="{{ url_for('edit_review', review_id=review._id) }}">
+                                <i class="fas fa-edit center"></i>
+                            </a>
+                        </button>
+                        <button type="delete" class="btn">
+                            <a href="{{ url_for('delete_review', review_id=review._id) }}">
+                                <i class="fas fa-trash center"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ review.img_url }}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ review.title }}<i class="material-icons right"></i></span>
+                    <p>{{ review.rating }}</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title"><i class="fas fa-times"></i></span>
+                        <p>{{ review.title }}</p>
+                        <p><strong>Release Date: </strong>{{ review.release_date }}</p>
+                        <p><strong>Created by: </strong>{{ review.created_by }}</p>
+                        <p><strong>Genre: </strong>{{ review.genre }}</p>
+                        <p><strong>Length: </strong>{{ review.length }}</p>
+                        <p><strong>Review: </strong>{{ review.review }}</p>
+                        <p><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

@@ -82,16 +82,21 @@ def login():
 
 @app.route("/profile")
 def profile():
+
     if session["user"]:
         user_profile = mongo.db.users.find_one(
             {"username": session["user"]})
-        return render_template("profile.html", user=user_profile)
+        submitted_by = mongo.db.reviews.find(
+            {"submitted_by": session["user"]})
 
-    return redirect(url_for("login"))
+        return render_template('profile.html',
+                               user=user_profile, 
+                               review=submitted_by)
 
 
 @app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
 def edit_profile(user_profile_id):
+
     if request.method == "POST":
         submit = {"$set": {
             "username": request.form.get("username"),
