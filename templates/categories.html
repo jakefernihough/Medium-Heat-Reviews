@@ -4,19 +4,18 @@
 
     <h3 class="center-align">choose your category</h3>
 
+
     <div class="container">
         <div class="row">
         {% for category in categories %}
             <div class="col-lg-6 md-6 sm-12">   
-                <div class="card 1">
-                    <div class="card_image">
-                        <img src="{{ category.cat_image }}"/>
+                <div class="cards 1">
+                    <div class="card_image"> <img src="{{ category.cat_image }}"/> </div>
+                        <div class="card_title white-text text-shadow">
+                            <p>{{ category.category_name }}</p>
+                        </div>
                     </div>
-                    <div class="card_title white-text text-shadow">
-                        <p>{{ category.category_name }}</p>
-                    </div>
-                </div>
-            </div>           
+                </div>           
     {% endfor %}
 
 {% endblock %}

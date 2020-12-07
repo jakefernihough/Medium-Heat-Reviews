@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Films</h3>
+{% for review in reviews %}
+<div class="centerflipcards">
+	<div class="square-flip">
+		<div class="square">
+			<div class="square-container">
+				<div class="align-center"><img src="{{ review.img_url }}" class="boxshadow" alt=""></div>
+				<h2 class="textshadow">{{ review.title }}</h2>
+				<h3 class="textshadow">{{ review.rating }}</h3>
+			</div>
+			<div class="flip-overlay"></div>
+		</div>
+		<div class="square2">
+			<div class="square-container2">
+				<div class="align-center"></div>
+				<p class="card-comp"><strong>{{ review.title }}</strong></p>
+                        <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
+                        <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
+                        <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
+                        <p class="card-comp"><strong>Length: </strong>{{ review.length }}</p>
+                        <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>
+                        <p class="card-comp"><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
+			</div>
+			<div class="flip-overlay"></div>
+		</div>
+	</div>
+    {% endfor %}
+
+{% endblock %}
