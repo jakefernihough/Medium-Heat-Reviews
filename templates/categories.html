@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Choose your category</h3>
 
-<div class="row">
-    {% for category in categories %}
-    <div class="col s12 m3">
-      <div class="cat=card deep-purple lighten-2 center-align">
-        <div class="card-content white-text">
-          <span class="card-title">{{ category.category_name }}</span>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
+    <h3 class="center-align">choose your category</h3>
+
+    <div class="container">
+        <div class="row">
+        {% for category in categories %}
+            <div class="col-lg-6 md-6 sm-12">   
+                <div class="card 1">
+                    <div class="card_image">
+                        <img src="{{ category.cat_image }}"/>
+                    </div>
+                    <div class="card_title white-text text-shadow">
+                        <p>{{ category.category_name }}</p>
+                    </div>
+                </div>
+            </div>           
     {% endfor %}
-  </div>
 
 {% endblock %}
