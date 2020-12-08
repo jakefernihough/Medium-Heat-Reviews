@@ -11,41 +11,44 @@
                 <div class="input-field col s12">
                     <i class="fas fa-user-edit prefix yellow-text"></i>
                     <input id="username" name="username" minlength="5" maxlength="15"
-                        value="{{ user.username }}" type="text" class="validate" required>
-                    <label class="black-text" for="username">Change Username</label>
+                        value="{{ user.username }}" type="text" class="validate white-text" required>
+                    <label class="white-text" for="username">Change Username</label>
                 </div>
             </div>
+            <!--Change Email-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-envelope prefix yellow-text"></i>
                     <input id="email" name="email" minlength="5" maxlength="25"
-                        value="{{ user.email }}" type="text" class="validate" required>
-                    <label class="black-text" for="email">Change Email Address</label>
+                        value="{{ user.email }}" type="text" class="validate white-text" required>
+                    <label class="white-text-text" for="email">Change Email Address</label>
                 </div>
             </div>
+            <!--Change Password-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-lock prefix yellow-text"></i>
-                    <input id="password" name="password" minlength="4" maxlength="12"
-                        pattern="^[a-zA-Z0-9{4,10}$" type="text" class="validate" required>
-                    <label class="black-text" for="password">Change Password</label>
+                    <input  id="password" name="password" minlength="4" maxlength="12"
+                        pattern="^[a-zA-Z0-9{4,10}$" type="text" class="validate white-text" required>
+                    <label class="white-text-text" for="password">Change Password</label>
                 </div>
             </div>
+            <!--User Tagline-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-hashtag prefix yellow-text"></i>
                     <textarea id="tagline" name="tagline" minlength="5"
-                        maxlength="50" class="materialize-textarea validate" required>
+                        maxlength="50" class="materialize-textarea validate white-text" required>
                         {{- user.tagline -}}
                     </textarea>
-                    <label class="black-text" for="tagline">Tagline</label>
+                    <label class="white-text" for="tagline">Tagline</label>
                 </div>
             </div><i class="fas fa-images prefix yellow-text"></i>
+            <!--Update user image-->
             <div class="row">
-                <div class="input-field col s12">
-                    
-                    <label class="black-text" for="user_image">Update Profile Image</label>
-                    <input class="form-control" id="user_image" name="user_image" required type="url">
+                <div class="input-field col s12"> 
+                    <label class="white-text" for="user_image">Update Profile Image</label>
+                    <input class="form-control white-text" id="user_image" name="user_image" required type="url">
                 </div>
             </div>
              <!-- Update Details -->

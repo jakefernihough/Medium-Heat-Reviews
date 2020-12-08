@@ -10,20 +10,21 @@
 			    <div class="row">
 				    <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix yellow-text"></i>
-					    <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled selected>Choose Category</option>
+					    <select id="category_name" name="category_name" class="validate white-text" required>
+                            <option class="white-text" value="" disabled selected></option>
                             {% for category in categories %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                <option class="white-text" value="{{ category.category_name }}">{{ category.category_name }}</option>
                             {% endfor %}
                         </select>
-					    <label for="category_name">Media Type</label>
+					    <label class="white-text" for="category_name">Media Type</label>
 				    </div>
     			</div>
+                <!--insert image url-->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-images prefix yellow-text"></i>
-                        <label for="img_url">Insert Image URL</label>
-                        <input class="form-control" id="img_url" name="img_url" required type="url">
+                        <label class="white-text" for="img_url">Insert Image URL</label>
+                        <input class="white-text form-control" id="img_url" name="img_url" required type="url">
                     </div>
                 </div>
                 <!-- title -->
@@ -31,62 +32,66 @@
                    <div class="input-field col s12">
                         <i class="fas fa-pencil-alt prefix yellow-text"></i>
                         <input id="title" name="title" minlength="5" maxlength="50"
-                            type="text" class="validate" required>
-                        <label for="title">Title</label>
+                            type="text" class="white-text validate" required>
+                        <label class="white-text" for="title">Title</label>
                     </div>
                 </div>
                 <!-- release date -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-calendar-alt prefix yellow-text"></i>
-                        <input id="release_date" name="release_date" type="text" class="datepicker validate" required>
-                        <label for="release_date">Release Date</label>
+                        <input id="release_date" name="release_date" type="text" class="datepicker white-text validate" required>
+                        <label class="white-text" for="release_date">Release Date</label>
                     </div>
                 </div>
+                <!--Created by-->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-quote-left  prefix yellow-text"></i>
                         <input id="created_by" name="created_by" minlength="5" maxlength="50"
-                            type="text" class="validate" required>
-                        <label for="created_by">Created By</label>
+                            type="text" class="white-text validate" required>
+                        <label class="white-text" for="created_by">Created By</label>
                     </div>
                 </div>
+                <!--Genre-->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-folder-plus prefix yellow-text"></i>
                         <input id="genre" name="genre" minlength="5" maxlength="50"
-                            type="text" class="validate" required>
-                        <label for="genre">Genre</label>
+                            type="text" class="validate white-text" required>
+                        <label class="white-text" for="genre">Genre</label>
                     </div>
                 </div>
+                <!--Length-->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-clock prefix yellow-text"></i>
                         <input id="length" name="length" minlength="5" maxlength="50"
-                            type="text" class="validate" required>
-                        <label for="length">Length</label>
+                            type="text" class="validate white-text" required>
+                        <label class="white-text" for="length">Length</label>
                     </div>
                 </div>
-                <!-- task description -->
+                <!-- Your Review -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-align-left prefix yellow-text"></i>
                         <textarea id="review" name="review" minlength="5"
-                            maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="review">Your Review</label>
+                            maxlength="200" class="materialize-textarea white-text validate" required></textarea>
+                        <label class="white-text" for="review">Your Review</label>
                     </div>
                 </div>
+                <!--Rating-->
                 <div class="row">
                     <i class="fas fa-star prefix yellow-text"></i>
-                    <label for="rating">Rating</label>
-                        <select name="rating" class="form-control" id="rating" required>
-                            <option value="" selected></option>
-                            <option value="&#11088;">&#11088;</option>
-                            <option value="&#11088; &#11088;">&#11088; &#11088;</option>
-                            <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
-                            <option value="&#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088;</option>
-                           <option value="&#11088; &#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
-                        </select>
+                    <label class="white-text" for="rating">Rating</label>
+                    <select name="rating" class="form-control" id="rating" required>
+                        <option value="" selected></option>
+                        <option value="&#11088;">&#11088;</option>
+                        <option value="&#11088; &#11088;">&#11088; &#11088;</option>
+                        <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
+                        <option value="&#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088;</option>
+                       <option value="&#11088; &#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                    </select>
                 </div>
                 <!-- submit button -->
                 <div class="row">
