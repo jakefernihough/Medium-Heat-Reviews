@@ -45,7 +45,6 @@ def register():
             return redirect(url_for("register"))
 
         register = {
-            "email": request.form.get("email").lower,
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -138,7 +137,7 @@ def logout():
 # New Reviews Page
 @app.route("/new_reviews")
 def new_reviews():
-    reviews = mongo.db.reviews.find().sort("_id", 1).limit(4)
+    reviews = mongo.db.reviews.find().sort("_id", -1).limit(4)
     return render_template("new_reviews.html", reviews=reviews)
 
 
@@ -209,7 +208,7 @@ def get_categories():
 # Films Page
 @app.route("/films")
 def films():
-    reviews = mongo.db.reviews.find()
+    reviews = mongo.db.reviews.find().sort("category_name", -1,)
     return render_template("films.html", reviews=reviews)
 
 
