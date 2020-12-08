@@ -3,19 +3,19 @@
 
     <h3 class="center-align">New Reviews</h3>
 
-    <div class="row card-panel grey lighten-5">
+    <div class="row">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+            <div class="row valign-wrapper right-align">
+                <div class="input-field col s12 m6">
+                    <i class="fas fa-search prefix"></i>
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
                     <label for="query">Search Reviews</label>
                 </div>
                 <div class="col s12 m4">
-                    <a href="{{ url_for('new_reviews') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                    <button type="submit" class="btn">
                         <i class="fas fa-search left"></i> Search
                     </button>
+                    <a href="{{ url_for('new_reviews') }}" class="btn">Reset</a>   
                 </div>
             </div>
         </form>
@@ -33,24 +33,20 @@
                         <div class="col s12 center-align">
                     </div>
                 </div>
-                <div class="card-image waves-effect waves-block waves-light">
+                <div class="card-image">
                     <img class="activator" src="{{ review.img_url }}">
                 </div>
-                <div class="card-content">
-                    <span class="card-title  grey-text text-darken-4">{{ review.title }}</span>
-                    <p>{{ review.rating }}</p>
-                    <i class="activator fas fa-ellipsis-h"></i>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title"><i class="fas fa-times"></i></span>
-                        <p class="card-comp"><strong>{{ review.title }}</strong></p>
+                <div class="card-content activator">
+                    <span class="card-title">{{ review.title }}</span>
+                        <p class="card-comp">{{ review.rating }}</p>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
                         <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
                         <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
                         <p class="card-comp"><strong>Length: </strong>{{ review.length }}</p>
                         <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>
                         <p class="card-comp"><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
-                    </div>
+                    <i class=" fas fa-ellipsis-h"></i>
+                </div>
                 </div>
             </div>
         {% endfor %}

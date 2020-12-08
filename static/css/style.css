@@ -21,7 +21,7 @@ body::-webkit-scrollbar-thumb {
 
 .main-container {
     font-family: 'JetBrains Mono', monospace;
-    background-image: url("https://images.hdqwalls.com/wallpapers/feather-pen.jpg");
+    background: #f5f3df;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
@@ -41,7 +41,7 @@ body::-webkit-scrollbar-thumb {
     /* Navbar */
 
 .nav-edit {
-    background-image: linear-gradient(to bottom right, purple, yellow);
+    background: rgb(36,0,26);
     color: white;
     font-family: 'JetBrains Mono', monospace;
     padding-bottom: 8px;
@@ -58,7 +58,7 @@ body::-webkit-scrollbar-thumb {
    /* Login/ Register */
 
 .login-edit {
-    background-image: linear-gradient(to bottom right, purple, yellow);
+    background: rgb(142,52,201);
     box-shadow: 10px 5px 20px black;
     font-family: 'JetBrains Mono', monospace;
     text-transform: capitalize;
@@ -85,11 +85,12 @@ body::-webkit-scrollbar-thumb {
     /* PROFILE */
 
 .well {
-    background-image: linear-gradient(to bottom right, purple, yellow);
+    background: rgb(36,0,26);
     box-shadow: 10px 5px 20px black;
     font-family: 'JetBrains Mono', monospace;
     text-transform: capitalize;
     margin-bottom: 20px;
+    color: white;
 }
 
 .image-edit {
@@ -134,7 +135,7 @@ body::-webkit-scrollbar-thumb {
 
 .card-tiles {
     box-shadow: 10px 5px 20px black;
-    background-image: linear-gradient(to bottom right, purple, yellow);
+    background: rgb(36,0,26);
     padding: 10px 0 10px;
 }
 
@@ -143,37 +144,53 @@ body::-webkit-scrollbar-thumb {
 }
 
 .card {
-    height: 430px;
+    height: 600px;
     width: 100%;
     box-shadow: 10px 5px 20px black;
-    background-color: #cbdaf2;
+    background-color: #98299e;
+    overflow-y: auto;
+    overflow-wrap: initial;
+    overflow-x: hidden;
 }
 
-.card-image img{
-    height: 300px;
-    width: 50%;
+.card-image{
+    width: 80%;
+    max-height: 450px;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+            align-self: center;
+}
+
+.card-image img {
+    height: 350px;
+    margin-top: 30px;
 }
 
 .card-content {
-    background-color: #cbdaf2;
+    background-color: #98299e;
+    margin-top: -8%;
+    color: white;
 }
 
-.card-reveal::-webkit-scrollbar {
+.card::-webkit-scrollbar {
     width: 12px;
+    background-color: white;
+    background: yellow;
 }
 
-.card-reveal::-webkit-scrollbar-track {
+.card::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px purple; 
     border-radius: 10px;
 }
 
-.card-reveal::-webkit-scrollbar-thumb {
+.card::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px purple;
     
 }
 .card-comp strong{
     font-weight: bold;
+    font-size: 1rem
 }
 
 
