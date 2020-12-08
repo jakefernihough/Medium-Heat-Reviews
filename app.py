@@ -138,7 +138,7 @@ def logout():
 # New Reviews Page
 @app.route("/new_reviews")
 def new_reviews():
-    reviews = mongo.db.reviews.find()
+    reviews = mongo.db.reviews.find().sort("_id", 1).limit(4)
     return render_template("new_reviews.html", reviews=reviews)
 
 
