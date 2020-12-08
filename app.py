@@ -25,6 +25,13 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    return render_template("new_reviews.html", reviews=reviews)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -212,7 +219,6 @@ def books():
 def videogames():
     reviews = mongo.db.reviews.find()
     return render_template("videogames.html", reviews=reviews)
-
 
 
 if __name__ == "__main__":
