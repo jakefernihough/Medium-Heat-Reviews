@@ -25,6 +25,7 @@ def about():
     return render_template("about.html")
 
 
+# Search bar
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -32,13 +33,13 @@ def search():
     return render_template("new_reviews.html", reviews=reviews)
 
 
+# Register
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        # check if username exists in db
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
@@ -50,7 +51,6 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!, Please edit your profile!")
         return redirect(url_for("profile", username=session["user"]))
@@ -58,6 +58,7 @@ def register():
     return render_template("register.html")
 
 
+# Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -87,6 +88,7 @@ def login():
     return render_template("login.html")
 
 
+# Profile page
 @app.route("/profile")
 def profile():
 
@@ -101,6 +103,7 @@ def profile():
                                review=submitted_by)
 
 
+# Edit Profile
 @app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
 def edit_profile(user_profile_id):
 
@@ -123,6 +126,7 @@ def edit_profile(user_profile_id):
         user=user_profile)
 
 
+# Logout
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -131,12 +135,14 @@ def logout():
     return redirect(url_for("login"))
 
 
+# New Reviews Page
 @app.route("/new_reviews")
 def new_reviews():
     reviews = mongo.db.reviews.find()
     return render_template("new_reviews.html", reviews=reviews)
 
 
+# Add Reviews
 @app.route("/add_reviews", methods=["GET", "POST"])
 def add_reviews():
     if request.method == "POST":
@@ -160,6 +166,7 @@ def add_reviews():
     return render_template("add_reviews.html", categories=categories)
 
 
+# Edit Reviews
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
@@ -184,6 +191,7 @@ def edit_review(review_id):
                            categories=categories)
 
 
+# Delete Reviews
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
@@ -191,30 +199,35 @@ def delete_review(review_id):
     return redirect(url_for("new_reviews"))
 
 
+# Categories page
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
+# Films Page
 @app.route("/films")
 def films():
     reviews = mongo.db.reviews.find()
     return render_template("films.html", reviews=reviews)
 
 
+# TV Page
 @app.route("/television")
 def television():
     reviews = mongo.db.reviews.find()
     return render_template("television.html", reviews=reviews)
 
 
+# Books Page
 @app.route("/books")
 def books():
     reviews = mongo.db.reviews.find()
     return render_template("books.html", reviews=reviews)
 
 
+# Video Games Page
 @app.route("/videogames")
 def videogames():
     reviews = mongo.db.reviews.find()

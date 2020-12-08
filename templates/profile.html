@@ -9,18 +9,21 @@
     {% else %}
     <br><br>
     <div class="container well">
+        <!--Profile Picture-->
         <div class="row">
             <div class="col-12 image-edit center-align">
                 <img src="{{ user['user_image'] }}" class="img-circle center-align">
                 <!-- How do I have a temporary profile picture for newly registered accounts?  -->
             </div>  
         </div>
+        <!--Uer Details-->
 	    <div class="row">
             <div class="col-12 center-align">
                 <h3>{{ user.username }}'s Profile</h3>
                 <p>{{ user.email }}</p>
                 <p>{{ user.tagline }}</p>
             </div>
+            <!--Edit Profile-->
             <div class="col-12 center-align">
                 <a class="btn" href="{{ url_for('edit_profile', user_profile_id=user._id) }}" title="edit profile"> <i
                     class="fas fa-user-edit" aria-hidden="true"> Edit Profile</i></a>
@@ -30,6 +33,7 @@
     {% endif %}
 
     <div class="container">
+        <!-- My Reviews-->
         <div class="row">
             <div class="col-12 center-align">
                 <h3>My Reviews</h3>
@@ -40,7 +44,8 @@
             </div>
         </div>
     </div>
-        <div class="row">
+    <!-- Search My Reviews -->
+    <div class="row">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row valign-wrapper right-align">
                 <div class="input-field col s12 m6">
@@ -57,6 +62,7 @@
             </div>
         </form>
     </div>
+    <!--My Review Cards-->
     <div class="container-fluid">
         <div class="row card-tiles">
         {% for review in review %}
@@ -74,6 +80,7 @@
                                 <i class="fas fa-edit center"></i>
                             </a>
                         </button>
+                        <!--Delete Button-->
                         <button type="delete" class="btn">
                             <a href="{{ url_for('delete_review', review_id=review._id) }}">
                                 <i class="fas fa-trash center"></i>
@@ -81,12 +88,11 @@
                         </button>
                     </div>
                 </div>
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ review.img_url }}">
-                </div>
+                <!--Image-->
                 <div class="card-image">
                     <img class="activator" src="{{ review.img_url }}">
                 </div>
+                <!--Review Details-->
                 <div class="card-content activator">
                     <span class="card-title  grey-text text-darken-4">{{ review.title }}</span>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
