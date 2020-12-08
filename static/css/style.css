@@ -55,6 +55,14 @@ body::-webkit-scrollbar-thumb {
     color: red;
 }
 
+.sidenav li a {
+    color: white;
+}
+
+.dropdown-content li a{
+    color: rgb(36,0,26);
+}
+
    /* Login/ Register */
 
 .login-edit {
