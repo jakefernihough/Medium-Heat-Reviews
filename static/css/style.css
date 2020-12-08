@@ -66,11 +66,12 @@ body::-webkit-scrollbar-thumb {
    /* Login/ Register */
 
 .login-edit {
-    background: rgb(142,52,201);
+    background: rgb(36,0,26);
     box-shadow: 10px 5px 20px black;
     font-family: 'JetBrains Mono', monospace;
     text-transform: capitalize;
     margin-bottom: 20px;
+    color: white;
 }
 
     /* About */
