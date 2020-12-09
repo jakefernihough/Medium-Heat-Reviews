@@ -60,8 +60,10 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
+                    existing_user["password"], request.form.get(
+                        "password")):
+                        session["user"] = request.form.get(
+                            "username").lower()
                         flash("Welcome, {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
@@ -80,8 +82,8 @@ def login():
 
 
 # Profile page
-@app.route("/profile")
-def profile():
+@app.route("/profile/<user_profile_id>")
+def profile(user_profile_id):
 
     if session["user"]:
         user_profile = mongo.db.users.find_one(
@@ -96,13 +98,11 @@ def profile():
 # Edit Profile
 @app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
 def edit_profile(user_profile_id):
-
     if request.method == "POST":
         submit = {"$set": {
             "username": request.form.get("username"),
-            "password": generate_password_hash(request.form.get("password")),
-            "tagline": request.form.get("tagline"),
-            "image_url": request.form.get("image_url")
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password"))
             }
         }
         mongo.db.users.update_one({"_id": ObjectId(user_profile_id)}, submit)
@@ -200,13 +200,6 @@ def delete_review(review_id):
     return redirect(url_for("new_reviews"))
 
 
-# Categories page
-@app.route("/get_categories")
-def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
-
-
 # Films Page
 @app.route("/films")
 def films():
@@ -237,5 +230,5 @@ def videogames():
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-    port=int(os.environ.get("PORT")),
-    debug=True)
+            port=int(os.environ.get("PORT")),
+            debug=True)
