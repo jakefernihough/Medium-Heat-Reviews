@@ -25,14 +25,6 @@ def about():
     return render_template("about.html")
 
 
-# Search bar
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
-    return render_template("new_reviews.html", reviews=reviews)
-
-
 # Register
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -98,8 +90,7 @@ def profile():
             {"submitted_by": session["user"]})
 
         return render_template('profile.html',
-                               user=user_profile, 
-                               review=submitted_by)
+                               user=user_profile, review=submitted_by)
 
 
 # Edit Profile
@@ -109,8 +100,9 @@ def edit_profile(user_profile_id):
     if request.method == "POST":
         submit = {"$set": {
             "username": request.form.get("username"),
-            "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "tagline": request.form.get("tagline"),
+            "image_url": request.form.get("image_url")
             }
         }
         mongo.db.users.update_one({"_id": ObjectId(user_profile_id)}, submit)
@@ -137,7 +129,17 @@ def logout():
 # New Reviews Page
 @app.route("/new_reviews")
 def new_reviews():
+    categories = mongo.db.categories.find().sort("category_name")
     reviews = mongo.db.reviews.find().sort("_id", -1).limit(4)
+    return render_template("new_reviews.html",
+                           reviews=reviews, categories=categories)
+
+
+# Search bar
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
     return render_template("new_reviews.html", reviews=reviews)
 
 
@@ -208,29 +210,29 @@ def get_categories():
 # Films Page
 @app.route("/films")
 def films():
-    reviews = mongo.db.reviews.find().sort("category_name", -1,)
-    return render_template("films.html", reviews=reviews)
+    film_reviews = mongo.db.reviews.find({"category_name": "Film"})
+    return render_template("films.html", reviews=film_reviews)
 
 
 # TV Page
 @app.route("/television")
 def television():
-    reviews = mongo.db.reviews.find()
-    return render_template("television.html", reviews=reviews)
+    television_reviews = mongo.db.reviews.find({"category_name": "Television"})
+    return render_template("television.html", reviews=television_reviews)
 
 
 # Books Page
 @app.route("/books")
 def books():
-    reviews = mongo.db.reviews.find()
-    return render_template("books.html", reviews=reviews)
+    book_reviews = mongo.db.reviews.find({"category_name": "Books"})
+    return render_template("books.html", reviews=book_reviews)
 
 
 # Video Games Page
 @app.route("/videogames")
 def videogames():
-    reviews = mongo.db.reviews.find()
-    return render_template("videogames.html", reviews=reviews)
+    videogames = mongo.db.reviews.find({"category_name": "Video Games"})
+    return render_template("videogames.html", reviews=videogames)
 
 
 if __name__ == "__main__":
