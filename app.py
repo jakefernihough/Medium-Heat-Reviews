@@ -82,8 +82,8 @@ def login():
 
 
 # Profile page
-@app.route("/profile/<user_profile_id>")
-def profile(user_profile_id):
+@app.route("/profile")
+def profile():
 
     if session["user"]:
         user_profile = mongo.db.users.find_one(
