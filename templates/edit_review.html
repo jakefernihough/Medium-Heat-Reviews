@@ -11,13 +11,14 @@
 			    <div class="row">
 				    <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix yellow-text"></i>
-					    <select id="category_name" name="category_name" class="validate white-text" required>
-                            <option class="white-text" value="" disabled selected></option>
+					    <select id="category_name" name="category_name" class="validate category-choice" required>
+                            <!--Review category to match media categories-->
+                            <option disabled selected></option>
                             {% for category in categories %}
                                 {% if category.category_name == review.category_name %}
-                                    <option class="white-text" value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                                 {% else %}
-                                    <option class="white-text" value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                                 {% endif %}
                             {% endfor %}
                         </select>
@@ -46,7 +47,7 @@
                     <div class="input-field col s12">
                         <i class="fas fa-calendar-alt prefix yellow-text"></i>
                         <input id="release_date" value="{{ review.release_date }}" name="release_date" type="text" class="datepicker white-text validate" required>
-                        <label class="white-text" for="release_date">Release Date</label>
+                        <label class="grey-text" for="release_date">Release Date</label>
                     </div>
                 </div>
                 <!--Created by-->
@@ -90,8 +91,8 @@
                 <!--Rating-->
                 <div class="row">
                     <i class="fas fa-star prefix yellow-text"></i>
-                    <label class="white-text" for="rating">Rating</label>
-                        <select name="rating" value="{{ review.rating }}" class="form-control" id="rating" required>
+                    <label class="grey-text" for="rating">Rating</label>
+                        <select name="rating" value="{{ review.rating }}" class="form-control category-choice" id="rating" required>
                             <option value="" selected></option>
                             <option value="&#11088;">&#11088;</option>
                             <option value="&#11088; &#11088;">&#11088; &#11088;</option>

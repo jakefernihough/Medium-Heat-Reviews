@@ -167,6 +167,11 @@ body::-webkit-scrollbar-thumb {
     padding-top: 20px;
 }
 
+.category-choice {
+    background-color: rgb(36, 0, 26);
+    color: white;
+}
+
     /* CARDS */
 
 .card-tiles {
@@ -177,6 +182,7 @@ body::-webkit-scrollbar-thumb {
 
 .category-header {
     color: white;
+    
 }
 
 .card {
@@ -199,7 +205,8 @@ body::-webkit-scrollbar-thumb {
 
 .card-image img {
     height: 350px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .card-content {

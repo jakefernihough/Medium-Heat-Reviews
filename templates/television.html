@@ -2,6 +2,8 @@
 {% block content %}
 
     <h3 class="center-align">Television</h3>
+    
+    <!-- Review Cards-->
     <div class="container-fluid">
         <div class="row card-tiles">
         {% for review in reviews %}
@@ -9,13 +11,19 @@
                 <div class="card center">
                     <div class="row">
                         <div class="col s12 center-align">
+                            <!--Category Name-->
+                            <div class="category-header center-align">
+                                {{ review.category_name }}   
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card-image">
-                    <img class="activator" src="{{ review.img_url }}">
-                </div>
-                <div class="card-content activator">
-                    <span class="card-title">{{ review.title }}</span>
+                    <!--Image-->
+                    <div class="card-image">
+                        <img class="activator" src="{{ review.img_url }}">
+                    </div>
+                    <!--Content-->
+                    <div class="card-content activator">
+                        <span class="card-title">{{ review.title }}</span>
                         <p class="card-comp">{{ review.rating }}</p>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
                         <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
@@ -23,8 +31,8 @@
                         <p class="card-comp"><strong>Length: </strong>{{ review.length }}</p>
                         <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>
                         <p class="card-comp"><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
-                    <i class=" fas fa-ellipsis-h"></i>
-                </div>
+                        <i class=" fas fa-ellipsis-h"></i>
+                    </div>
                 </div>
             </div>
         {% endfor %}

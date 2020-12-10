@@ -31,7 +31,7 @@ def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        # check if username exists in db
+        # checks if username exists in db
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
@@ -128,9 +128,45 @@ def logout():
 # New Reviews Page
 @app.route("/new_reviews")
 def new_reviews():
-    categories = mongo.db.categories.find().sort("category_name")
     reviews = mongo.db.reviews.find().sort("_id", -1).limit(4)
     return render_template("new_reviews.html",
+                           reviews=reviews)
+
+
+# Films Page
+@app.route("/films")
+def films():
+    film_reviews = mongo.db.reviews.find({"category_name": "Film"})
+    return render_template("films.html", reviews=film_reviews)
+
+
+# TV Page
+@app.route("/television")
+def television():
+    television_reviews = mongo.db.reviews.find({"category_name": "Television"})
+    return render_template("television.html", reviews=television_reviews)
+
+
+# Books Page
+@app.route("/books")
+def books():
+    book_reviews = mongo.db.reviews.find({"category_name": "Books"})
+    return render_template("books.html", reviews=book_reviews)
+
+
+# Video Games Page
+@app.route("/videogames")
+def videogames():
+    videogames = mongo.db.reviews.find({"category_name": "Video Games"})
+    return render_template("videogames.html", reviews=videogames)
+
+
+# All Reviews Page
+@app.route("/all_reviews")
+def all_reviews():
+    categories = mongo.db.categories.find().sort("category_name")
+    reviews = mongo.db.reviews.find().sort("title", 1)
+    return render_template("all_reviews.html",
                            reviews=reviews, categories=categories)
 
 
@@ -139,7 +175,7 @@ def new_reviews():
 def search():
     query = request.form.get("query")
     reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
-    return render_template("new_reviews.html", reviews=reviews)
+    return render_template("all_reviews.html", reviews=reviews)
 
 
 # Add Reviews
@@ -197,34 +233,6 @@ def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Task Successfully Deleted")
     return redirect(url_for("new_reviews"))
-
-
-# Films Page
-@app.route("/films")
-def films():
-    film_reviews = mongo.db.reviews.find({"category_name": "Film"})
-    return render_template("films.html", reviews=film_reviews)
-
-
-# TV Page
-@app.route("/television")
-def television():
-    television_reviews = mongo.db.reviews.find({"category_name": "Television"})
-    return render_template("television.html", reviews=television_reviews)
-
-
-# Books Page
-@app.route("/books")
-def books():
-    book_reviews = mongo.db.reviews.find({"category_name": "Books"})
-    return render_template("books.html", reviews=book_reviews)
-
-
-# Video Games Page
-@app.route("/videogames")
-def videogames():
-    videogames = mongo.db.reviews.find({"category_name": "Video Games"})
-    return render_template("videogames.html", reviews=videogames)
 
 
 if __name__ == "__main__":
