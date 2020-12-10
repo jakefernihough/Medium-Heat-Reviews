@@ -5,8 +5,8 @@
 
     <div class="container">
     <div class="row card-tiles">
-        <form class="col s12" method="POST" action="{{ url_for('edit_profile', user_profile=user_profile._id) }}">
-            <!-- Title -->
+        <form class="col s12" method="POST">
+            <!-- Change Username -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-edit prefix yellow-text"></i>
@@ -15,35 +15,82 @@
                     <label class="white-text" for="username">Change Username</label>
                 </div>
             </div>
+            <!--Change Email Address-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-envelope prefix yellow-text"></i>
+                    <input id="email" name="email" minlength="5" maxlength="25"
+                        value="{{ user.email }}" type="text" class="validate white-text" required>
+                    <label class="white-text" for="email">Change Email Address</label>
+                </div>
+            </div>
             <!--Change Password-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-lock prefix yellow-text"></i>
-                    <input  id="password" name="password" minlength="4" maxlength="12"
-                        pattern="^[a-zA-Z0-9{4,10}$" value="{{ user.password }}" type="text" class="validate white-text" required>
-                    <label class="white-text-text" for="password">Change Password</label>
+                    <input id="password" name="password" minlength="4" maxlength="12"
+                        pattern="^[a-zA-Z0-9{4,10}$" value="-" type="text" class="validate white-text" required>
+                    <label class="white-text" for="password">Update Password</label>
                 </div>
             </div>
-            <!--User Tagline-->
+            <!--Change Name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-signature prefix yellow-text"></i>
+                    <input id="name" name="name" minlength="5" maxlength="25"
+                        value="{{ user.name }}" type="text" class="validate white-text" required>
+                    <label class="white-text" for="username">Update Full Name</label>
+                </div>
+            </div>
+            <!--Update Fav Film-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-film prefix yellow-text"></i>
+                    <input id="favourite_film" name="favourite_film" minlength="5" maxlength="15"
+                        value="{{ user.favourite_film }}" type="text" class="validate white-text">
+                    <label class="white-text" for="favourite_film">Update Favourite Film</label>
+                </div>
+            </div>
+            <!--Update Fav TV Show-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-tv prefix yellow-text"></i>
+                    <input id="favourite_tv_show" name="favourite_tv_show" minlength="5" maxlength="15"
+                        value="{{ user.favourite_tv_show }}" type="text" class="validate white-text">
+                    <label class="white-text" for="favourite_tv_show">Update Favourite TV Show</label>
+                </div>
+            </div>
+            <!--Update Fav Book-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-book prefix yellow-text"></i>
+                    <input id="favourite_book" name="favourite_book" minlength="5" maxlength="15"
+                        value="{{ user.favourite_book }}" type="text" class="validate white-text">
+                    <label class="white-text" for="favourite_book">Update Favourite Book</label>
+                </div>
+            </div>
+            <!--Update Fav Video Game-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-gamepad prefix yellow-text"></i>
+                    <input id="favourite_game" name="favourite_game" minlength="5" maxlength="15"
+                        value="{{ user.favourite_game }}" type="text" class="validate white-text">
+                    <label class="white-text" for="favourite_game">Update Favourite Video Game</label>
+                </div>
+            </div>
+            <!--Update Your Fav Quote-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-hashtag prefix yellow-text"></i>
                     <textarea id="tagline" name="tagline" minlength="5"
-                        maxlength="50" value="{{ user.tagline }}" class="materialize-textarea validate white-text" required>
+                        maxlength="50" class="materialize-textarea white-text validate" required>
                         {{- user.tagline -}}
                     </textarea>
-                    <label class="white-text" for="tagline">Tagline</label>
-                </div>
-            </div><i class="fas fa-images prefix yellow-text"></i>
-            <!--Update user image-->
-            <div class="row">
-                <div class="input-field col s12"> 
-                    <label class="white-text" for="user_image">Update Profile Image</label>
-                    <input class="form-control white-text" id="user_image" name="user_image" value="{{ user.user_image }}" required type="url">
+                    <label class="white-text" for="tagline">Your Favourite Quote</label>
                 </div>
             </div>
              <!-- Update Details -->
-            <button type="edit" value="edit" class="btn" title="edit" aria-label="edit"><i class="fas fa-check icon-btn"></i></button>
+            <button type="submit" value="submit" class="btn" title="submit" aria-label="submit"><i class="fas fa-check icon-btn"></i></button>
             <!-- Cancel -->
             <a href="{{ url_for('profile')}}" class="btn" aria-label="cancel" title="cancel"><i class="fas fa-times-circle icon-btn"></i></a>
             </form>

@@ -38,12 +38,13 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "tagline": request.form.get("tagline")
         }
         mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!, Please edit your profile!")
+        flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
@@ -89,15 +90,16 @@ def profile():
         user_profile = mongo.db.users.find_one(
             {"username": session["user"]})
         submitted_by = mongo.db.reviews.find(
-            {"submitted_by": session["user"]})
+            {"submitted_by": session["user"]}).sort("_id", -1)
 
         return render_template('profile.html',
-                               user=user_profile, review=submitted_by)
+                               user=user_profile, 
+                               review=submitted_by)
 
 
-# Edit Profile
 @app.route("/edit_profile/<user_profile_id>", methods=["GET", "POST"])
 def edit_profile(user_profile_id):
+
     if request.method == "POST":
         submit = {"$set": {
             "username": request.form.get("username"),
@@ -108,9 +110,7 @@ def edit_profile(user_profile_id):
         mongo.db.users.update_one({"_id": ObjectId(user_profile_id)}, submit)
         session["user"] = request.form.get("username")
         flash("profile successfully updated!")
-
         return redirect(url_for("profile"))
-
     user_profile = mongo.db.users.find_one({"_id": ObjectId(user_profile_id)})
     return render_template(
         "edit_profile.html", main_content="edit_profile",
