@@ -39,14 +39,14 @@
                     <i class="fas fa-signature prefix yellow-text"></i>
                     <input id="name" name="name" minlength="5" maxlength="25"
                         value="{{ user.name }}" type="text" class="validate white-text" required>
-                    <label class="white-text" for="username">Update Full Name</label>
+                    <label class="white-text" for="name">Update Full Name</label>
                 </div>
             </div>
             <!--Update Fav Film-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-film prefix yellow-text"></i>
-                    <input id="favourite_film" name="favourite_film" minlength="5" maxlength="15"
+                    <input id="favourite_film" name="favourite_film" minlength="5" maxlength="35"
                         value="{{ user.favourite_film }}" type="text" class="validate white-text">
                     <label class="white-text" for="favourite_film">Update Favourite Film</label>
                 </div>
@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-tv prefix yellow-text"></i>
-                    <input id="favourite_tv_show" name="favourite_tv_show" minlength="5" maxlength="15"
+                    <input id="favourite_tv_show" name="favourite_tv_show" minlength="5" maxlength="35"
                         value="{{ user.favourite_tv_show }}" type="text" class="validate white-text">
                     <label class="white-text" for="favourite_tv_show">Update Favourite TV Show</label>
                 </div>
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix yellow-text"></i>
-                    <input id="favourite_book" name="favourite_book" minlength="5" maxlength="15"
+                    <input id="favourite_book" name="favourite_book" minlength="5" maxlength="35"
                         value="{{ user.favourite_book }}" type="text" class="validate white-text">
                     <label class="white-text" for="favourite_book">Update Favourite Book</label>
                 </div>
@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-gamepad prefix yellow-text"></i>
-                    <input id="favourite_game" name="favourite_game" minlength="5" maxlength="15"
+                    <input id="favourite_game" name="favourite_game" minlength="5" maxlength="35"
                         value="{{ user.favourite_game }}" type="text" class="validate white-text">
                     <label class="white-text" for="favourite_game">Update Favourite Video Game</label>
                 </div>
@@ -83,7 +83,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-hashtag prefix yellow-text"></i>
                     <textarea id="tagline" name="tagline" minlength="5"
-                        maxlength="50" class="materialize-textarea white-text validate" required>
+                        maxlength="100" class="materialize-textarea white-text validate" required>
                         {{- user.tagline -}}
                     </textarea>
                     <label class="white-text" for="tagline">Your Favourite Quote</label>

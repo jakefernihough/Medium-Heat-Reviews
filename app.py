@@ -38,13 +38,12 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "tagline": request.form.get("tagline")
+            "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!, Please edit your profile!")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
