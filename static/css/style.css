@@ -17,7 +17,9 @@ body::-webkit-scrollbar-thumb {
 
     /* Body */
 
-
+main {
+    flex: 1 0 auto;
+}
 
 .main-container {
     font-family: 'JetBrains Mono', monospace;
@@ -52,7 +54,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .nav-wrapper ul li a:hover {
-    color: red;
+    color: yellow;
 }
 
 .sidenav li a {
@@ -61,6 +63,33 @@ body::-webkit-scrollbar-thumb {
 
 .dropdown-content li a{
     color: rgb(36,0,26);
+}
+
+    /* Footer */
+
+.page-footer {
+    margin-top: 5px;
+    background: #a8238e;
+}
+
+.footer-list {
+    min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+}
+
+.footer-list li {
+    display: inline;
+}
+
+.footer-list li a i {
+    color: white;
+    font-size: 20px;
+}
+
+.footer-list li a i:hover {
+    color: yellow;
+    font-size: 20px;
 }
 
    /* Login/ Register */
@@ -81,7 +110,7 @@ body::-webkit-scrollbar-thumb {
     box-shadow: 10px 5px 20px black;
     font-family: 'JetBrains Mono', monospace;
     text-transform: capitalize;
-    margin: 15px 0 15px;
+    margin: 15px 0 25px;
     color: white;
 }
 
@@ -99,6 +128,7 @@ body::-webkit-scrollbar-thumb {
 .slider {
     box-shadow: 15px 15px 20px 15px rgb(36,0,26);
     margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .slides li img {

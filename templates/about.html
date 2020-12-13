@@ -2,16 +2,27 @@
 {% block content %}
 
     <div class="container-fluid">
+        {% if session.user %}
+        <!--Welcome-->
         <div class="row center-align card-panel about-edit">
             <div class="col-12">
-            <h1 >WELCOME TO MEDIUM HEAT REVIEWS</h1>
-            <p class="urls-for"><a href="{{ url_for('login') }}">Login</a> / <a href="{{ url_for('register') }}">Register</a></p>
+                <h1 >WELCOME TO MEDIUM HEAT REVIEWS</h1>
             </div>
         </div>
+        {% else %}
+        <div class="row center-align card-panel about-edit">
+            <div class="col-12">
+                <h1 >WELCOME TO MEDIUM HEAT REVIEWS</h1>
+                <!--Login/Register link-->
+                <p class="urls-for"><a href="{{ url_for('login') }}">Login</a> / <a href="{{ url_for('register') }}">Register</a></p>
+            </div>
+        </div>
+        {% endif %}
+        <!--Slider-->   
         <div class="slider">
             <ul class="slides">
-                <li>
-                    <!-- Film -->
+                <!-- Film -->
+                <li>    
                     <img src="https://wallpaperaccess.com/full/2000046.jpg"> 
                     <div class="caption left-align">
                         <i class="cat-icon fas fa-film"></i>
@@ -19,8 +30,8 @@
                         <h5 class="info">Read the latest from our film fanatics!</h5>
                     </div>
                 </li>
-                <li>
-                    <!-- Television -->
+                <!-- Television -->
+                <li> 
                     <img src="https://wallpaperaccess.com/full/2081074.jpg"> 
                     <div class="caption col-9 left-align">
                         <i class="cat-icon fas fa-tv"></i>
@@ -28,8 +39,8 @@
                         <h5 class="info">Find out what is binge-worthy!</h5>
                     </div>
                 </li>
+                <!-- Books -->
                 <li>
-                    <!-- Books -->
                     <img src="https://wallpaperaccess.com/full/124493.jpg"> 
                     <div class="caption right-align">
                         <i class="cat-icon fas fa-book"></i>
@@ -37,8 +48,8 @@
                         <h5 class="info">Start your fantasies, right here!</h5>
                     </div>
                 </li>
+                <!-- Video Games -->
                 <li>
-                    <!-- Video Games -->
                     <img src="https://ayay.co.uk/backgrounds/action_games/classic/space-invaders-minimal-cabinet.jpg"> 
                     <div class="caption left-align">
                         <i class="cat-icon fas fa-gamepad"></i>
@@ -49,8 +60,5 @@
             </ul>
         </div>
     </div>
-
-
-    
 
 {% endblock %}
