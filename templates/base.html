@@ -91,36 +91,54 @@
         </ul>
     </header>
     <main class="main-container">
+        <section id="flash">
          <!-- flash messages displayed-->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div class="row flashes">
+                <div class="container">
+                    <div class="row flashes center-align">
                         <h4 class="deep-purple-text text-lighten-2 center-align">{{ message }}</h4>
                     </div>
+                </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-
+        </section>
+        
         {% block content %}
         {% endblock %}
-        <footer class="page-footer">
-            <div class="container">
-                <div class="row center-align">
-                    <div class="col-12 offset-l2 s12">
-                        <ul class="footer-list">
-                            <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                        </ul>
-                        <div class="container center-align">
-                            © 2020 Medium Heat Reviews
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </main>
+    <footer class="footer">
+        <div class="row">
+            <ul class="col d-flex justify-content-center mb-1 social-links">
+                <!-- Facebook-->
+                <li class="p-2">
+                    <a href="https://en-gb.facebook.com/" target="_blank" >
+                        <i class="p-2 fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <!-- Instagram-->
+                <li class="p-2">
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <i class="p-2 fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <!-- Twitter-->
+                <li class="p-2">
+                    <a href="https://www.twitter.com/" target="_blank">
+                        <i class="p-2 fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Copyright-->
+        <div class="row">
+            <div class="col text-center white-text">
+                <small>&copy; 2020 | Medium Heat Reviews </small>
+            </div>
+        </div>
+    </footer>
     
     <!--Bootstrap script-->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

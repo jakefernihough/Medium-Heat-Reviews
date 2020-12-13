@@ -17,6 +17,18 @@ body::-webkit-scrollbar-thumb {
 
     /* Body */
 
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -24,12 +36,6 @@ main {
 .main-container {
     font-family: 'JetBrains Mono', monospace;
     background: #f5f3df;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    position: relative;
 }
 
 .text-shadow {
@@ -38,6 +44,25 @@ main {
 
 .flashes h4 {
     line-height: 2;
+}
+
+    /* Footer */
+
+.footer {
+    background: rgb(36,0,26);
+    box-shadow: 5px 8px 5px purple;
+    margin-top: 15px;
+}
+
+.social-links li a i {
+    font-size: 35px;
+    color: white;
+    text-decoration: none;
+}
+
+.social-links li a i:hover {
+    text-decoration: none;
+    color: yellow;
 }
 
     /* Navbar */

@@ -5,10 +5,10 @@
 
     <div class="container">
         <div class="row card-tiles">
-            <form class="col s12" method="POST" action="{{ url_for('add_reviews') }}">
+            <form class="col-lg-12 col-sm-12 col-md-12" method="POST" action="{{ url_for('add_reviews') }}">
                 <!-- category selection -->
 			    <div class="row">
-				    <div class="input-field col s12">
+				    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-folder-open prefix yellow-text"></i>
 					    <select id="category_name" name="category_name" class="validate white-text" required>
                             <option class="white-text" value="" disabled selected></option>
@@ -21,7 +21,7 @@
     			</div>
                 <!--insert image url-->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-images prefix yellow-text"></i>
                         <label class="white-text" for="img_url">Insert Image URL</label>
                         <input class="white-text form-control" id="img_url" name="img_url" required type="url">
@@ -29,7 +29,7 @@
                 </div>
                 <!-- title -->
                 <div class="row">
-                   <div class="input-field col s12">
+                   <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-pencil-alt prefix yellow-text"></i>
                         <input id="title" name="title" minlength="5" maxlength="50"
                             type="text" class="white-text validate" required>
@@ -38,7 +38,7 @@
                 </div>
                 <!-- release date -->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-calendar-alt prefix yellow-text"></i>
                         <input id="release_date" name="release_date" type="text" class="datepicker white-text validate" required>
                         <label class="white-text" for="release_date">Release Date</label>
@@ -46,7 +46,7 @@
                 </div>
                 <!--Created by-->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-quote-left  prefix yellow-text"></i>
                         <input id="created_by" name="created_by" minlength="5" maxlength="50"
                             type="text" class="white-text validate" required>
@@ -55,7 +55,7 @@
                 </div>
                 <!--Genre-->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-folder-plus prefix yellow-text"></i>
                         <input id="genre" name="genre" minlength="5" maxlength="50"
                             type="text" class="validate white-text" required>
@@ -64,7 +64,7 @@
                 </div>
                 <!--Length-->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-clock prefix yellow-text"></i>
                         <input id="length" name="length" minlength="5" maxlength="50"
                             type="text" class="validate white-text" required>
@@ -73,7 +73,7 @@
                 </div>
                 <!-- Your Review -->
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col-lg-12 col-sm-12 col-md-12">
                         <i class="fas fa-align-left prefix yellow-text"></i>
                         <textarea id="review" name="review" minlength="5"
                             maxlength="200" class="materialize-textarea white-text validate" required></textarea>
@@ -99,6 +99,9 @@
                         <button type="submit" class="btn">
                             Submit Review <i class="fas fa-plus-square right"></i>
                         </button>
+                        <a href="{{ url_for('new_reviews') }}" class="btn">
+                            Cancel <i class="fas fa-times-circle right"></i>
+                        </a>
                     </div>
                 </div>
             </form>
