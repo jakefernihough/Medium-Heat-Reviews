@@ -1,4 +1,4 @@
-![Medium Heat Reviews](workspace/Medium-Heat-Reviews/static/images/logo.jpg)
+![Medium Heat Reviews](/static/images/logo.jpg)
 
 # Medium Heat Reviews
 
