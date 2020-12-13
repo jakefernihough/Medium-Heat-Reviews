@@ -1,52 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-
     <div class="container-fluid">
+        <div class="row center-align card-panel about-edit">
+            <div class="col-12">
+            <h1 >WELCOME TO MEDIUM HEAT REVIEWS</h1>
+            <p class="urls-for"><a href="{{ url_for('login') }}">Login</a> / <a href="{{ url_for('register') }}">Register</a></p>
+            </div>
+        </div>
         <div class="slider">
             <ul class="slides">
                 <li>
-                <!-- Welcome -->
-                    <img src="https://wallpaperset.com/w/full/1/6/5/83953.jpg"> 
-                    <div class="caption center-align yellow-text text-shadow">
-                        <h3>WELCOME TO MEDIUM HEAT REVIEWS</h3>
-                        <h5 class="light grey-text text-lighten-3">We build up your fire for all things entertainment.</h5>
-                    </div>
-                </li>
-                <li>
                     <!-- Film -->
                     <img src="https://wallpaperaccess.com/full/2000046.jpg"> 
-                    <div class="caption left-align yellow-text text-shadow">
+                    <div class="caption left-align">
                         <i class="cat-icon fas fa-film"></i>
-                        <h3>FILMS</h3>
-                        <h5 class="light grey-text text-lighten-3">Read the latest from our film fanatics!</h5>
+                        <h3 class="text-shadow">FILMS</h3>
+                        <h5 class="info">Read the latest from our film fanatics!</h5>
                     </div>
                 </li>
                 <li>
                     <!-- Television -->
                     <img src="https://wallpaperaccess.com/full/2081074.jpg"> 
-                    <div class="caption col-9 right-align yellow-text text-shadow">
+                    <div class="caption col-9 left-align">
                         <i class="cat-icon fas fa-tv"></i>
-                        <h3>TELEVISION</h3>
-                        <h5 class="light grey-text text-lighten-3">Find out what is binge-worthy!</h5>
+                        <h3 class="text-shadow">TELEVISION</h3>
+                        <h5 class="info">Find out what is binge-worthy!</h5>
                     </div>
                 </li>
                 <li>
                     <!-- Books -->
                     <img src="https://wallpaperaccess.com/full/124493.jpg"> 
-                    <div class="caption right-align yellow-text text-shadow">
+                    <div class="caption right-align">
                         <i class="cat-icon fas fa-book"></i>
-                        <h3>BOOKS</h3>
-                        <h5 class="light grey-text text-lighten-3">Start your fantasies, right here!</h5>
+                        <h3 class="text-shadow">BOOKS</h3>
+                        <h5 class="info">Start your fantasies, right here!</h5>
                     </div>
                 </li>
                 <li>
                     <!-- Video Games -->
                     <img src="https://ayay.co.uk/backgrounds/action_games/classic/space-invaders-minimal-cabinet.jpg"> 
-                    <div class="caption yellow-text left-align">
+                    <div class="caption left-align">
                         <i class="cat-icon fas fa-gamepad"></i>
-                        <h3>VIDEO GAMES</h3>
-                        <h5 class="light grey-text text-lighten-3">Lose yourself in another world!</h5>
+                        <h3 class="text-shadow">VIDEO GAMES</h3>
+                        <h5 class="info">Lose yourself in another world!</h5>
                     </div>
                 </li>
             </ul>

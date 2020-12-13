@@ -76,19 +76,48 @@ body::-webkit-scrollbar-thumb {
 
     /* About */
 
+.about-edit {
+    background: rgb(36,0,26);
+    box-shadow: 10px 5px 20px black;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: capitalize;
+    margin: 15px 0 15px;
+    color: white;
+}
+
 .caption {
-    box-shadow: 10px 15px 20px black;
+    box-shadow: 10px 15px 20px rgb(36,0,26);
     margin-top: 40px;
 }
 
 .cat-icon {
     font-size: 45px;
     text-shadow: 2px 4px 3px black;
+    color: yellow;
 }
 
 .slider {
-    box-shadow: 10px 5px 20px black;
-    margin-top: 40px;
+    box-shadow: 15px 15px 20px 15px rgb(36,0,26);
+    margin-top: 20px;
+}
+
+.slides li img {
+    opacity: 0.85;
+}
+
+.info {
+    color: rgb(36,0,26);
+    text-shadow: 2px 3px 2px yellow;
+}
+
+.urls-for a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.urls-for a:hover {
+    color: white;
+    text-decoration: none;
 }
 
     /* PROFILE */
@@ -135,10 +164,6 @@ body::-webkit-scrollbar-thumb {
     margin-top: 9px;
     margin-bottom: 9px;
     color: yellow;
-}
-
-.edit-profile-btn {
-
 }
 
     /* Buttons */
