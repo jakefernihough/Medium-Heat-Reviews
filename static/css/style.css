@@ -241,6 +241,17 @@ main {
     color: yellow;
 }
 
+.head-back a {
+    color: rgb(36, 0, 26);
+    text-decoration: none;
+    text-align: center;
+}
+
+.head-back a:hover {
+    color: goldenrod;
+    text-decoration: none;
+}
+
     /* NEW REVIEWS */
 
 .new-reviews-header {
@@ -265,8 +276,18 @@ main {
     
 }
 
+.card-title {
+    font-size: 15px;
+    color: yellow;
+    text-shadow: 1px 2px 1px #000;
+}
+
+.card-rating {
+    text-align: center;
+}
+
 .card {
-    height: 600px;
+    height: 530px;
     width: 100%;
     box-shadow: 10px 5px 20px black;
     background-color: #98299e;
@@ -285,8 +306,8 @@ main {
 
 .card-image img {
     height: 350px;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 25px;
 }
 
 .card-content {
@@ -313,7 +334,15 @@ main {
 }
 .card-comp strong{
     font-weight: bold;
-    font-size: 1rem
+    font-size: 1rem;
+    text-align: left;
+    color: yellow;
+    text-shadow: 1px 2px 1px #000;
+}
+
+.card-comp {
+    padding-bottom: 10px;
+    text-align: left;
 }
 
 

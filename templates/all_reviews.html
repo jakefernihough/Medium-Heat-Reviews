@@ -3,6 +3,8 @@
 
     <h3 class="center-align">All Reviews</h3>
 
+    <p class="center-align head-back"><a href="{{ url_for('new_reviews') }}">Head back <i class="fas fa-undo-alt"></i></a></p>
+
     <!--Search Bar.-->
     <div class="row">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
@@ -45,7 +47,7 @@
                     <!--Content-->
                     <div class="card-content activator">
                         <span class="card-title">{{ review.title }}</span>
-                        <p class="card-comp">{{ review.rating }}</p>
+                        <p class="card-rating">{{ review.rating }}</p>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
                         <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
                         <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
@@ -59,5 +61,8 @@
         {% endfor %}
         </div>
     </div>
+   
+    <p class="center-align head-back"><a href="{{ url_for('new_reviews') }}">Head back <i class="fas fa-undo-alt"></i></a></p>
+    <p class="center-align head-back"><a href="{{ url_for('new_reviews') }}">Back to top <i class="fas fa-level-up-alt"></i></a></p>
 
 {% endblock %}

@@ -72,40 +72,44 @@
                 <div class="card center">
                     <div class="row">
                         <div class="col s12 center-align">
-                        <!-- Edit button -->
-                        <button type="submit" class="btn">
-                            <a href="{{ url_for('edit_review', review_id=review._id) }}">
-                                <i class="fas fa-edit center"></i>
-                            </a>
-                        </button>
-                        <!--Delete Button-->
-                        <button type="delete" class="btn">
-                            <a href="{{ url_for('delete_review', review_id=review._id) }}">
-                                <i class="fas fa-trash center"></i>
-                            </a>
-                        </button>
+                            <!-- Edit button -->
+                            <button type="submit" class="btn">
+                                <a href="{{ url_for('edit_review', review_id=review._id) }}">
+                                    <i class="fas fa-edit center"></i>
+                                </a>
+                            </button>
+                            <!--Delete Button-->
+                            <button type="delete" class="btn">
+                                <a href="{{ url_for('delete_review', review_id=review._id) }}">
+                                    <i class="fas fa-trash center"></i>
+                                </a>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <!--Image-->
-                <div class="card-image">
-                    <img class="activator" src="{{ review.img_url }}">
-                </div>
-                <!--Review Details-->
-                <div class="card-content activator">
-                    <span class="card-title  grey-text text-darken-4">{{ review.title }}</span>
+                    <!--Image-->
+                    <div class="card-image">
+                        <img class="activator" src="{{ review.img_url }}">
+                    </div>
+                    <!--Review Details-->
+                    <div class="card-content activator">
+                        <span class="card-title">{{ review.title }}</span>
+                        <p class="card-rating">{{ review.rating }}</p>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
                         <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
                         <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
                         <p class="card-comp"><strong>Length: </strong>{{ review.length }}</p>
-                        <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>
+                        <p class="card-comp"><strong>Review: </strong>"{{ review.review }}"</p>                        
                         <p class="card-comp"><strong>Submitted by: </strong>{{ review.submitted_by }}</p>
-                    <i class=" fas fa-ellipsis-h"></i>
-                </div>
+                         <i class=" fas fa-ellipsis-h"></i>
+                    </div>
                 </div>
             </div>
             {% endif %}
         {% endfor %}
         </div>
     </div>
+
+    <p class="center-align head-back"><a href="{{ url_for('new_reviews') }}">Head back <i class="fas fa-undo-alt"></i></a></p>
+    <p class="center-align head-back"><a href="{{ url_for('profile') }}">Back to top <i class="fas fa-level-up-alt"></i></a></p>
 
 {% endblock %}

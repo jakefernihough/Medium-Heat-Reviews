@@ -2,7 +2,29 @@
 {% block content %}
 
     <h3 class="center-align">Television</h3>
+
+    <p class="center-align head-back"><a href="{{ url_for('new_reviews') }}">Head back <i class="fas fa-undo-alt"></i></a></p>
     
+    <!--Search Bar.-->
+    <div class="row">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper right-align">
+                <div class="input-field col s12 m6">
+                    <i class="fas fa-search prefix"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Reviews</label>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <!--Search button-->
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                    <!--Reset-->
+                    <a href="{{ url_for('all_reviews') }}" class="btn">Reset</a>   
+                </div>
+            </div>
+        </form>
+    </div>
     <!-- Review Cards-->
     <div class="container-fluid">
         <div class="row card-tiles">
@@ -24,7 +46,7 @@
                     <!--Content-->
                     <div class="card-content activator">
                         <span class="card-title">{{ review.title }}</span>
-                        <p class="card-comp">{{ review.rating }}</p>
+                        <p class="card-rating">{{ review.rating }}</p>
                         <p class="card-comp"><strong>Release Date: </strong>{{ review.release_date }}</p>
                         <p class="card-comp"><strong>Created by: </strong>{{ review.created_by }}</p>
                         <p class="card-comp"><strong>Genre: </strong>{{ review.genre }}</p>
@@ -38,5 +60,8 @@
         {% endfor %}
         </div>
     </div>
+
+    <p class="center-align head-back"><a href="{{ url_for('new_reviews') }}">Head back <i class="fas fa-undo-alt"></i></a></p>
+    <p class="center-align head-back"><a href="{{ url_for('television') }}">Back to top <i class="fas fa-level-up-alt"></i></a></p>
 
 {% endblock %}
