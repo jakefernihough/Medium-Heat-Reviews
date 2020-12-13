@@ -13,6 +13,8 @@ about the things I discover and see how they fare in other peoples eyes.
 So to be able to want to find a new book to read, I can look at what other people recommend so that I can experience
 what they enjoy or what they're passionate about.
 
+[live site](https://medium-heat-reviews.herokuapp.com/)
+
 ![website](/static/images/website.jpg)
 
 ## Contents ##
@@ -315,6 +317,9 @@ onto the new reviews page.
 
 # Testing
 
+Testing information can be found in a separate [Testing.md](Testing.md) file.
+
+[Back to contents](#contents)
 
 # Deployment
 
