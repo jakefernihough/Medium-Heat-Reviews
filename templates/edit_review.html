@@ -10,14 +10,11 @@
         <div class="row card-tiles">
             <form class="col s12" method="POST" 
                 action="{{ url_for('edit_review', review_id=review._id) }}">
-                <!-- category selection -->
 			    <div class="row">    
 				    <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix yellow-text"></i>
-                        <select id="category_name" 
-                            name="category_name" 
-                            class="validate category-choice" 
-                            required>
+                        <!-- category selection -->
+                        <select id="category_name" name="category_name" class="validate category-choice" required>
                             <!--Review category to match media categories-->
                             <option disabled selected></option>
                             {% for category in categories %}
