@@ -7,8 +7,8 @@
     <div class="container">
         <div class="row card-tiles">
             <form class="col s12" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
-                <!-- category selection -->
 			    <div class="row">
+                    <!-- category selection -->
 				    <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix yellow-text"></i>
 					    <select id="category_name" name="category_name" class="validate category-choice" required>
@@ -92,14 +92,14 @@
                 <div class="row">
                     <i class="fas fa-star prefix yellow-text"></i>
                     <label class="grey-text" for="rating">Rating</label>
-                        <select name="rating" value="{{ review.rating }}" class="form-control category-choice" id="rating" required>
-                            <option value="" selected></option>
-                            <option value="&#11088;">&#11088;</option>
-                            <option value="&#11088; &#11088;">&#11088; &#11088;</option>
-                            <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
-                            <option value="&#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088;</option>
-                           <option value="&#11088; &#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
-                        </select>
+                    <select name="rating" value="{{ review.rating }}" class="form-control category-choice" id="rating" required>
+                        <option value="" selected></option>
+                        <option value="&#11088;">&#11088;</option>
+                        <option value="&#11088; &#11088;">&#11088; &#11088;</option>
+                        <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
+                        <option value="&#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088;</option>
+                       <option value="&#11088; &#11088; &#11088; &#11088; &#11088;">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                    </select>
                 </div>
                 <!-- Edit button -->
                 <div class="row">
