@@ -14,7 +14,10 @@
 			    <div class="row">    
 				    <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix yellow-text"></i>
-					    <select id="category_name" name="category_name" class="validate category-choice" required>
+                        <select id="category_name" 
+                            name="category_name" 
+                            class="validate category-choice" 
+                            required>
                             <!--Review category to match media categories-->
                             <option disabled selected></option>
                             {% for category in categories %}
