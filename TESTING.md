@@ -147,6 +147,8 @@ The app functions fast. Minimal time delay when using the site.
 
 1. When registering/ logging in, Google Chrome has an issue that doesn't allow the website to be secure.
 
+2. Viewing the code on Github. Edit_reviews and Add_reviews show the form not laid out neatly/ correctly, however on the workspace it is neatly coded.
+
 ### Solved Bugs ###
 
 1. Admin was unable to login because I had written value="{{ user.password }}" in the edit profile section.
