@@ -267,7 +267,7 @@ main {
 }
 
 .category-choice {
-    background-color: rgb(36, 0, 26);
+    background-color: white;
     color: white;
 }
 
@@ -410,4 +410,11 @@ main {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
     -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+   /* select */
+
+.selectcat {
+    color: white !important;
+    background-color: white;
 }

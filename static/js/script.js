@@ -12,7 +12,7 @@ $(document).ready(function(){
             done: "Select"
         }
     });
-    $('select').formSelect().css("color", "white");
+    $('select').formSelect();
   });
  
 

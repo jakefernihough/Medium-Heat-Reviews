@@ -147,7 +147,18 @@ The app functions fast. Minimal time delay when using the site.
 
 1. When registering/ logging in, Google Chrome has an issue that doesn't allow the website to be secure.
 
-2. Viewing the code on Github. Edit_reviews and Add_reviews show the form not laid out neatly/ correctly, however on the workspace it is neatly coded.
+2. Viewing the code on Github. Edit_reviews/Add_reviews/login/register show the form not laid out neatly/ correctly, however on the workspace it is neatly coded.
+
+![code format](/static/bugs/ogcode.png)
+![format mess up](/static/bugs/image.png)
+
+3. I attempted to change the text colour of the Form Select on add/edit reviews to choose category. I enlisted the help of 
+Tutor Support and after 2 hours of changing class names, clearing cache, opening on incognito mode, we could not find a way to change the text colour.
+I left the CSS at the bottom of the style.css file to show that it does attempt to change the colour.
+
+![category choice fail](/static/bugs/fail.png)
+
+
 
 ### Solved Bugs ###
 
