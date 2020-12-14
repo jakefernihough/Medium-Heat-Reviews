@@ -215,10 +215,18 @@ main {
     font-family: 'JetBrains Mono', monospace;
 }
 
+.my-fav h3 {
+    color: yellow;
+}
+
 .fav-list i{
     margin-top: 9px;
     margin-bottom: 9px;
     color: yellow;
+}
+
+.fav {
+    color: goldenrod;
 }
 
     /* Buttons */
@@ -297,7 +305,7 @@ main {
 }
 
 .card-image{
-    width: 80%;
+    width: 50%;
     max-height: 450px;
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
@@ -305,7 +313,7 @@ main {
 }
 
 .card-image img {
-    height: 350px;
+    height: 250px;
     margin-top: 5px;
     margin-bottom: 25px;
 }

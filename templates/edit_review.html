@@ -4,6 +4,8 @@
 
     <h3 class="center-align">Edit Review</h3>
 
+    <p class="center-align head-back"><a href="{{ url_for('profile') }}">Return to Profile <i class="fas fa-undo-alt"></i></a></p>
+
     <div class="container">
         <div class="row card-tiles">
             <form class="col s12" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
@@ -74,7 +76,7 @@
                         <i class="fas fa-clock prefix yellow-text"></i>
                         <input id="length" name="length" value="{{ review.length }}" minlength="5" maxlength="50"
                             type="text" class="validate white-text" required>
-                        <label class="grey-text" for="length">Length</label>
+                        <label class="grey-text" for="length">Length (Hours/Minutes/Episodes/Pages)</label>
                     </div>
                 </div>
                 <!-- Your Review -->
@@ -92,8 +94,8 @@
                 <div class="row">
                     <i class="fas fa-star prefix yellow-text"></i>
                     <label class="grey-text" for="rating">Rating</label>
-                    <select name="rating" value="{{ review.rating }}" class="form-control category-choice" id="rating" required>
-                        <option value="" selected></option>
+                    <select name="rating" class="form-control category-choice" id="rating" required>
+                        <option value="{{ review.rating }}" selected>{{ review.rating }}</option>
                         <option value="&#11088;">&#11088;</option>
                         <option value="&#11088; &#11088;">&#11088; &#11088;</option>
                         <option value="&#11088; &#11088; &#11088;">&#11088; &#11088; &#11088;</option>
@@ -109,7 +111,7 @@
                             Cancel <i class="fas fa-times-circle right"></i>
                         </a>
                         <button type="submit" class="btn">
-                            Edit Review <i class="fas fa-edit right"></i>
+                            Update Review <i class="fas fa-edit right"></i>
                         </button>
                     </div>
                 </div>

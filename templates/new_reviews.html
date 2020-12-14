@@ -12,13 +12,13 @@
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
                     <label for="query">Search Reviews</label>
                 </div>
-                <div class="col s12 m4">
+                <div class="col-sm-12 col-md-4 col-lg-4">
                     <!--Search button-->
                     <button type="submit" class="btn">
                         <i class="fas fa-search left"></i> Search
                     </button>
                     <!--Reset-->
-                    <a href="{{ url_for('new_reviews') }}" class="btn">Reset</a>   
+                    <a href="{{ url_for('all_reviews') }}" class="btn">Reset</a>   
                 </div>
             </div>
         </form>
