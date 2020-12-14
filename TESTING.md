@@ -9,15 +9,15 @@
 
 ## CONTENTS
 
-   - [Automated Testing](#utomated-testing)
+   - [**Automated Testing**](#utomated-testing)
        - [Validated Services](#validated-services)
        - [Testing Stories](#testing-stories)
-           - [Site Visitor](#site-visitor)
-           - [Registered User](#registered-user)
-   - [Manual Testing](#maunual-testing)
+           - [*Site Visitor*](#site-visitor)
+           - [*Registered User*](#registered-user)
+   - [**Manual Testing**](#maunual-testing)
        - [Testing](#testing)
        - [Additional Requirements and Expectations Testing](#additional-requirements-and-expectations-testing)
-   - [Bugs Discovered](#bugs-discovered)
+   - [**Bugs Discovered**](#bugs-discovered)
        - [Fixed Bugs](#fixed-bugs)
 
 
@@ -145,6 +145,8 @@ The app functions fast. Minimal time delay when using the site.
 
 ## Bugs Discovered
 
+1. When registering/ logging in, Google Chrome has an issue that doesn't allow the website to be secure.
+
 ### Solved Bugs ###
 
 1. Admin was unable to login because I had written value="{{ user.password }}" in the edit profile section.
@@ -162,13 +164,14 @@ However once I removed that value, it worked perfectly fine. **FIXED**
 2. I put in the wrong Functionality so that my reviews would only show on that users profile.
 After working with the Tutor, i managed to figure out the input. **FIXED**
 
-    submitted_by = mongo.db.reviews.find(
+   > submitted_by = mongo.db.reviews.find(
             {"submitted_by": session["user"]}).sort("_id", -1)
 
 3. I only wanted to show the latest 4 reviews on the new reviews page. **FIXED**
  
    I first input this code:
-       reviews = mongo.db.reviews.find().sort({"_id", -1}).limit(4)
+
+    >  reviews = mongo.db.reviews.find().sort({"_id", -1}).limit(4)
     
     I realised after that the {} in the .sort function was not needed and it corrected my code.
 
