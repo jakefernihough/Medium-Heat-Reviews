@@ -161,8 +161,8 @@ main {
 }
 
 .info {
-    color: rgb(36,0,26);
-    text-shadow: 2px 3px 2px yellow;
+    color: goldenrod;
+    text-shadow: 2px 1px 2px rgb(36,0,26) ;
 }
 
 .urls-for a {

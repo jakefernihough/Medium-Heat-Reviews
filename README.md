@@ -353,19 +353,19 @@ python -m pip -r requirements.txt
 
 5: Your env.py file should contain the following:
 
-import os
+> import os
 
-os.environ.setdefault("IP", "0.0.0.0")
+> os.environ.setdefault("IP", "0.0.0.0")
 
-os.environ.setdefault("PORT", "5000")
+> os.environ.setdefault("PORT", "5000")
 
-os.environ.setdefault("SECRET_KEY", "YOUR_SECRET_KEY")
+> os.environ.setdefault("SECRET_KEY", "YOUR_SECRET_KEY")
 
-os.environ.setdefault("MONGO_URI", "YOUR_MONGODB_URI")
+> os.environ.setdefault("MONGO_URI", "YOUR_MONGODB_URI")
 
-os.environ.setdefault("MONGO_DBNAME", "YOUR_DATABASE_NAME")
+> os.environ.setdefault("MONGO_DBNAME", "YOUR_DATABASE_NAME")
 
-os.environ.setdefault("DEBUG", "1")
+> os.environ.setdefault("DEBUG", "1")
 
 - Please make sure you update your **SECRET_KEY**, **password**, **database_name**, and **DATABASE_NAME**.
 
